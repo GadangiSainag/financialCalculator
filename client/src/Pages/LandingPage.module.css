@@ -25,8 +25,6 @@ body {
 
   justify-content: center;
 }
-
-
 @media only screen and (max-width: 767px) {
   /* Styles to apply when the screen width is 767 pixels or less */
   body {
@@ -34,21 +32,16 @@ body {
   }
   /* Example: Adjust font size for better readability on smaller screens */
   .cardContainer {
-    width: 96%;
+    width: 94%;
     margin: 70px auto 340px;
     display:  grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 0.5fr));
 
     column-gap: 10px;
     row-gap: 30px;
     justify-content: center;
   }
-  .card {
-    /* height: fit-content; */
-    width: 125px;
-    margin: auto;
-    padding: 0 15px;
-  }
+
   .title {
     margin-top: 10px;
     font-size: 20px;
@@ -63,3 +56,5 @@ body {
   }
   /* Add more styles for mobile devices as needed */
 }
+
+
