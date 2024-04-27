@@ -18,6 +18,9 @@ export default function CalculatorPage() {
         
        
         </div>
+        <div className="div">
+          
+        </div>
         
       </div>
     </div>
