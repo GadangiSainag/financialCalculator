@@ -17,14 +17,14 @@
           "is_visible": true,
           "min": 500,
           "minLable" : "1000",
-          "max": 1000000,
-          "maxLable": "1Cr",
-          "step": 1000
+          "max": 2500000,
+          "maxLable": "25Cr",
+          "step": 500
         },
         "input_template_type": "TEXT_SLIDER_INPUT_VIEW"
       },
       {
-        "title": "Monthly investment",
+        "title": "Monthly salary",
         "description" : "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
         "text_box": {
           "is_visible": true,
@@ -44,7 +44,7 @@
         "input_template_type": "TEXT_SLIDER_INPUT_VIEW"
       },
       {
-        "title": "Monthly investment",
+        "title": "Monthly fee",
         "description" : "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
         "text_box": {
           "is_visible": true,
