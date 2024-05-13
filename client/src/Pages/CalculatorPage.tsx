@@ -1,7 +1,9 @@
 import calculatorData from "../assets/sip_calculator_data.json";
 import classes from "./CalculatorPage.module.css";
-import InputFiled from "../Components/Card/InputField";
+import InputField from "../Components/Card/InputField";
 import PieChart from "../Components/DrawPie";
+import TextAreaOutput from "../Components/TextOutputArea";
+
 export default function CalculatorPage() {
   return (
     <div>
@@ -10,49 +12,22 @@ export default function CalculatorPage() {
 
         <header>{calculatorData.header}</header>
         <div className={classes.container}>
+
           <div className={classes.divi}>
             {calculatorData.inputs.map((eachInput) => {
               return (
                 <div className={classes.element}>
-                  <InputFiled input={eachInput} />
+                  <InputField input={eachInput} />
                 </div>
               );
             })}
           </div>
+            {/* ---------------------------Output fields ---------------------------------------*/}
           <div className={classes.output}>
-            {/* Output fields */}
-            <div style={{ width: "300px", margin: "40px auto" }}>
+            <div style={{ width: "fit-content", margin: "60px auto" }}>
               <PieChart />
             </div>
-            <h1>₹2,14,522 /month</h1>
-            <div className={classes.parent}>
-              <div className={classes.div1}>
-                <div
-                  style={{
-                    width: "15px",
-                    backgroundColor: "rgba(25, 26, 36, 1)",
-                    height: "15px",
-                  }}
-                ></div>
-
-                <h2>Principal amount</h2>
-              </div>
-              <div className={classes.div2}>
-                <div
-                  style={{
-                    width: "15px",
-                    backgroundColor: "rgba(77, 100, 141, 1)",
-                    height: "15px",
-                  }}
-                ></div>
-
-                <h2>Intrest amount</h2>
-              </div>
-              <div className={classes.div3}>
-              <h3> Total Amount Payable </h3>
-                <h2>dkjgssgsfg</h2>
-              </div>
-            </div>
+          <TextAreaOutput output = {calculatorData.outputs} />
           </div>
         </div>
       </div>

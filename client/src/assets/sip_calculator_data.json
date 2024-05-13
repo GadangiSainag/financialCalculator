@@ -21,7 +21,7 @@
         "minLable": "1000",
         "max": 2500000,
         "maxLable": "25Cr",
-        "step": 500
+        "step": 7000
       }
     },
     {
@@ -87,16 +87,25 @@
   ],
   "outputs": [
     {
-      "id": "output_1",
-      "title": "Expected Amount"
+      "id": "expected_amount_sip",
+      "title": "Expected Amount",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": "calculateExpectedAmount"
     },
     {
-      "id": "output_2",
-      "title": "Amount Invested"
+      "id": "amount_invested_sip",
+      "title": "Amount Invested",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": "calculateAmountInvested"
     },
     {
-      "id": "output_3",
-      "title": "Wealth Gain"
+      "id": "wealth_gain_sip",
+      "title": "Wealth Gain",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": "calculateWealthGain"
     }
   ],
   "formulas": {

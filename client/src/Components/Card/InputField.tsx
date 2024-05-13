@@ -25,7 +25,7 @@ interface sliderInputComponent {
     };
   };
 }
-export default function InputFiled(props: sliderInputComponent) {
+export default function InputField(props: sliderInputComponent) {
   const dispatch = useDispatch();
 
   // const [rangeVal, setRange] = useState<number>(props.input.text_box.placeholder_value);
@@ -49,8 +49,8 @@ export default function InputFiled(props: sliderInputComponent) {
     dispatch(updateValue({ id: props.input.id, value: newValue }));
   };
   const index = data.inputs.findIndex((item) => item.id === props.input.id);
-  const liveValue = useSelector(
-    (state: RootState) => state.inputs[index].value
+  const liveObj = useSelector(
+    (state: RootState) => state.inputs[index]
   ); //corect logic
 
   return (
@@ -67,7 +67,7 @@ export default function InputFiled(props: sliderInputComponent) {
             step={props.input.slider.step}
             width="250px"
             // value={numVal}
-            value={liveValue}
+            value={liveObj.value}
             onChange={handleChange}
           ></input>
           <div className={classes.constants}>
@@ -80,7 +80,7 @@ export default function InputFiled(props: sliderInputComponent) {
           id={classes.numerical}
           type={"number"}
           // value={rangeVal}
-          value={liveValue}
+          value={liveObj.value}
           step={props.input.slider.step}
           onChange={handleChange}
         ></input>
