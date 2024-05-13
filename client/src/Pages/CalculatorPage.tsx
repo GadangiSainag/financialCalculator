@@ -35,12 +35,8 @@ export default function CalculatorPage() {
                   }}
                 ></div>
 
-                
-                  <h2>Principal amount</h2>
-                  
-                
+                <h2>Principal amount</h2>
               </div>
-
               <div className={classes.div2}>
                 <div
                   style={{
@@ -50,12 +46,12 @@ export default function CalculatorPage() {
                   }}
                 ></div>
 
-                
-                  <h2>Intrest amount</h2>
-                  
+                <h2>Intrest amount</h2>
               </div>
-
-              <h2 className={classes.div3}> Total Amount Payable </h2>
+              <div className={classes.div3}>
+              <h3> Total Amount Payable </h3>
+                <h2>dkjgssgsfg</h2>
+              </div>
             </div>
           </div>
         </div>

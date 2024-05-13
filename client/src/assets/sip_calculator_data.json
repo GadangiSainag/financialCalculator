@@ -45,6 +45,26 @@
       }
     },
     {
+      "id": "input_4",
+      "title": "Yearly shit",
+      "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 8100,
+        "is_commas_enabled": true,
+        "starting_text": "₹",
+        "input_type": "number"
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 500,
+        "minLable": "1000",
+        "max": 2500000,
+        "maxLable": "25Cr",
+        "step": 500
+      }
+    },
+    {
       "id": "input_3",
       "title": "Monthly fee",
       "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
@@ -61,7 +81,7 @@
         "minLable": "1000",
         "max": 1000000,
         "maxLable": "1Cr",
-        "step": 1000
+        "step": 500
       }
     }
   ],
