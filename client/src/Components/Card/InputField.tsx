@@ -3,6 +3,7 @@ import classes from "./InputField.module.css";
 interface sliderInputComponent {
   input :
     {
+      id: string;
       title: string;
       description : string;
       text_box: {
@@ -20,9 +21,9 @@ interface sliderInputComponent {
         maxLable : string;
         step: number;
       },
-      input_template_type: string;
+    
     }
-  
+
 }
  export default function InputFiled(props:sliderInputComponent){
 

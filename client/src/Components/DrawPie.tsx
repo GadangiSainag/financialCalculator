@@ -19,8 +19,7 @@ const PieChart = () => {
     }],
     // Optionally include labels
     labels: [
-      'Red',
-      'Blue'
+     
     ],
     
   };
@@ -31,19 +30,16 @@ const PieChart = () => {
     plugins: {
       legend: {
         
-        position: '',
+        position: "chartArea",
         
-      },
-      tooltip: {
-        mode: "index",
-        intersect: false,
-      },
+      }
+      
     },
     // To further enhance the "floating" effect, we can modify the rotation or circumference
     rotation: 90,
     circumference: 360,
   };
-
+//   M = P * (((1 + i)^n - 1) / i) * (1 + i)
   return <Pie data={data} options ={options} />;
 };
 
