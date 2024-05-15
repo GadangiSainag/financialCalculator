@@ -4,6 +4,8 @@ interface InvestmentInputs {
   expectedAnnualReturns: number; // Expected Annual Returns (%)
 }
 
+        
+
 interface InvestmentOutputs {
   expectedAmount: number; // Expected Amount
   amountInvested: number; // Amount Invested
@@ -16,8 +18,7 @@ function calculateInvestmentReturns(
   const {
     monthlyInvestmentAmount,
     investmentPeriod,
-    expectedAnnualReturns,
-  } = inputs;
+    expectedAnnualReturns,} = inputs;
 
   const totalMonths = investmentPeriod * 12;
   const annualReturnRate = expectedAnnualReturns / 100;

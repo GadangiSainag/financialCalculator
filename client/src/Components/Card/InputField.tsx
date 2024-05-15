@@ -3,7 +3,7 @@ import { updateValue } from "../../state/inputSlice";
 import { useDispatch, useSelector } from "react-redux";
 import data from "../../assets/sip_calculator_data.json";
 import { RootState } from "../../state/store";
-interface sliderInputComponent {
+export interface sliderInputComponent {
   input: {
     id: string;
     title: string;
@@ -47,15 +47,17 @@ export default function InputField(props: sliderInputComponent) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value);
     dispatch(updateValue({ id: props.input.id, value: newValue }));
+
   };
-  const index = data.inputs.findIndex((item) => item.id === props.input.id);
-  const liveObj = useSelector(
-    (state: RootState) => state.inputs[index]
-  ); //corect logic
+  const allInputs = data.inputs;
+  const index = allInputs.findIndex((item) => item.id === props.input.id);
+  const liveObj = useSelector((state: RootState) => state.inputs[index]); //corect logic
 
   return (
     <div className={classes.inputUnit}>
-      <p className={classes.title}>{props.input.title}</p>
+    
+        <h2 className={classes.title}>{props.input.title}</h2>
+      
       <p className={classes.discription}>{props.input.description}</p>
       <div className={classes.inputComp}>
         <div className={classes.sliderInput}>

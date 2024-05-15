@@ -6,7 +6,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_SIP",
-        "path": "sip-calculator"
+        "path": "sip-calculator",
+        "config_file_name" : "sip_calculator_data"
       }
     },
     {
@@ -15,7 +16,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_LUMPSUM",
-        "path": "lumpsum-calculator"
+        "path": "lumpsum-calculator",
+        "config_file_name" : "lumpsum_calculator_data"
       }
     },
     {
@@ -24,7 +26,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_SWP",
-        "path": "swp-calculator"
+        "path": "swp-calculator",
+        "config_file_name" : ""
       }
     },
     {
@@ -33,7 +36,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_SWP",
-        "path": "swp-calculator"
+        "path": "swp-calculator",
+        "config_file_name" : ""
       }
     },{
       "header": "SwefWP",
@@ -41,7 +45,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_SWP",
-        "path": "swp-calculator"
+        "path": "swp-calculator",
+        "config_file_name" : ""
       }
     },{
       "header": "SwefWP",
@@ -49,7 +54,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_SWP",
-        "path": "swp-calculator"
+        "path": "swp-calculator",
+        "config_file_name" : ""
       }
     },{
       "header": "SIP",
@@ -57,7 +63,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_SIP",
-        "path": "sip-calculator"
+        "path": "sip-calculator",
+        "config_file_name" : ""
       }
     },
     {
@@ -66,7 +73,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_LUMPSUM",
-        "path": "lumpsum-calculator"
+        "path": "lumpsum-calculator",
+        "config_file_name" : ""
       }
     },
     {
@@ -75,7 +83,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_SWP",
-        "path": "swp-calculator"
+        "path": "swp-calculator",
+        "config_file_name" : ""
       }
     },{
       "header": "SIP",
@@ -83,7 +92,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_SIP",
-        "path": "sip-calculator"
+        "path": "sip-calculator",
+        "config_file_name" : ""
       }
     },
     {
@@ -92,7 +102,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_LUMPSUM",
-        "path": "lumpsum-calculator"
+        "path": "lumpsum-calculator",
+        "config_file_name" : ""
       }
     },
     {
@@ -101,7 +112,8 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_SWP",
-        "path": "swp-calculator"
+        "path": "swp-calculator",
+        "config_file_name" : ""
       }
     }
     

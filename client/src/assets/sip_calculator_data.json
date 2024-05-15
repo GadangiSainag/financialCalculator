@@ -5,12 +5,12 @@
   "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
   "inputs": [
     {
-      "id": "input_1",
-      "title": "Yearly investment",
+      "id": "monthly_investment_sip",
+      "title": "Monthly investment",
       "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
       "text_box": {
         "is_visible": true,
-        "placeholder_value": 810200,
+        "placeholder_value": 2000,
         "is_commas_enabled": true,
         "starting_text": "₹",
         "input_type": "number"
@@ -18,70 +18,50 @@
       "slider": {
         "is_visible": true,
         "min": 500,
-        "minLable": "1000",
-        "max": 2500000,
-        "maxLable": "25Cr",
-        "step": 7000
-      }
-    },
-    {
-      "id": "input_2",
-      "title": "Monthly salary",
-      "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
-      "text_box": {
-        "is_visible": true,
-        "placeholder_value": 102500,
-        "is_commas_enabled": true,
-        "starting_text": "₹",
-        "input_type": "number"
-      },
-      "slider": {
-        "is_visible": true,
-        "min": 500,
-        "minLable": "1000",
+        "minLable": "500",
         "max": 1000000,
-        "maxLable": "1Cr",
-        "step": 1000
-      }
-    },
-    {
-      "id": "input_4",
-      "title": "Yearly shit",
-      "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
-      "text_box": {
-        "is_visible": true,
-        "placeholder_value": 8100,
-        "is_commas_enabled": true,
-        "starting_text": "₹",
-        "input_type": "number"
-      },
-      "slider": {
-        "is_visible": true,
-        "min": 500,
-        "minLable": "1000",
-        "max": 2500000,
-        "maxLable": "25Cr",
+        "maxLable": "10L",
         "step": 500
       }
     },
     {
-      "id": "input_3",
-      "title": "Monthly fee",
+      "id": "expected_amount_sip",
+      "title": "Expected return rate (p.a)",
       "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
       "text_box": {
         "is_visible": true,
-        "placeholder_value": 102500,
+        "placeholder_value": 2.4,
         "is_commas_enabled": true,
         "starting_text": "₹",
         "input_type": "number"
       },
       "slider": {
         "is_visible": true,
-        "min": 500,
-        "minLable": "1000",
-        "max": 1000000,
-        "maxLable": "1Cr",
-        "step": 500
+        "min": 1,
+        "minLable": "1%",
+        "max": 30,
+        "maxLable": "30%",
+        "step": 0.1
+      }
+    },
+    {
+      "id": "time_period_sip",
+      "title": "Time Period",
+      "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 3,
+        "is_commas_enabled": false,
+        "starting_text": "",
+        "input_type": "number"
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLable": "1Yr",
+        "max": 40,
+        "maxLable": "40Yr",
+        "step": 1
       }
     }
   ],
@@ -91,26 +71,31 @@
       "title": "Expected Amount",
       "front_character": "₹",
       "back_character": "",
-      "formula": "calculateExpectedAmount"
+      "formula": {
+        "formulaName": "calculateExpectedAmount",
+        "parameters": []
+      }
     },
     {
       "id": "amount_invested_sip",
       "title": "Amount Invested",
       "front_character": "₹",
       "back_character": "",
-      "formula": "calculateAmountInvested"
+      "formula": {
+        "formulaName": "calculateAmountInvested",
+        "parameters": []
+      }
     },
     {
       "id": "wealth_gain_sip",
       "title": "Wealth Gain",
       "front_character": "₹",
       "back_character": "",
-      "formula": "calculateWealthGain"
+      "formula": {
+        "formulaName": "calculateWealthGain",
+        "parameters": []
+      }
     }
-  ],
-  "formulas": {
-    "Expected Amount": "calculateExpectedAmount",
-    "Amount Invested": "calculateAmountInvested",
-    "Wealth Gain": "calculateWealthGain"
-  }
+  ]
+
 }
