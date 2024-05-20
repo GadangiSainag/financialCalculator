@@ -1,35 +1,58 @@
-import { createSlice } from "@reduxjs/toolkit";
-import data from "../assets/sip_calculator_data.json";
-export type inputObj = {
-  id: string;
-  value: number;
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { InputsState, calculatorType } from "../utils/types";
+import { AppDispatch, RootState } from "./store";
+
+const initialState: InputsState = {
+  status: "idle",
+  data: [],
 };
 
-const initialState: inputObj[] = [];
-// [
-//   { id: string, value: number },
-//   { id: string, value: number },
-//   { id: string, value: number },
-//   { id: string, value : number}
-// ];
-data.inputs.map((input) => {
-  // console.log(input.id)
-  // console.log(input.text_box.placeholder_value)
-  initialState.push({ id: input.id, value: input.text_box.placeholder_value });
-});
-
 const inputSlice = createSlice({
-  name: "inputs",
+  name: "calcInputs",
   initialState,
   reducers: {
-    updateValue(state, action) {
-      // state
-      const index = data.inputs.findIndex(
-        (item) => item.id === action.payload.id
-      );
-      state[index].value = action.payload.value;
+    addNewValues(state, action: PayloadAction<calculatorType["inputs"]>) {
+      action.payload.forEach((input) => {
+        state.data.push({
+          id: input.id,
+          value: input.text_box.placeholder_value,
+        });
+      });
+    },
+
+    updateInputValue(
+      state,
+      action: PayloadAction<{ id: string; value: number }>
+    ) {
+      const { id, value } = action.payload;
+      const input = state.data.find((item) => item.id === id);
+      if (input) {
+        input.value = value;
+      }
+    },
+
+    clearAllInputs(state) {
+      state.data = [];
     },
   },
 });
-export const { updateValue } = inputSlice.actions;
+
+export const fetchDataFromStore = () => async (
+  dispatch: AppDispatch,
+  getState: () => RootState
+) => {
+  const calciData = getState().calculator.liveCalculatorData;
+
+  if (calciData?.inputs) {
+    dispatch(addNewValues(calciData.inputs));
+  } else {
+    console.warn("No calculator data found");
+  }
+};
+
+export const {
+  updateInputValue,
+  addNewValues,
+  clearAllInputs,
+} = inputSlice.actions;
 export default inputSlice.reducer;

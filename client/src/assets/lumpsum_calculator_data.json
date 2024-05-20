@@ -1,0 +1,103 @@
+{
+    "calculator_type": "CALCULATOR_LUMPSUM",
+    "template_type": "TEXT_SLIDER_PIE",
+    "page_title": "LUMPSUM Calculate Online",
+    "header": "Lumpsum Calculator",
+    "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
+    "inputs": [
+      {
+        "id": "monthly_investment_lumpsum",
+        "title": "Monthly investment",
+        "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 4000,
+          "is_commas_enabled": true,
+          "starting_text": "₹",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 500,
+          "minLabel": "500",
+          "max": 5000000,
+          "maxLabel": "10L",
+          "step": 1000
+        }
+      },
+      {
+        "id": "expected_amount_lumpsum",
+        "title": "Expected return rate (p.a)",
+        "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 4.4,
+          "is_commas_enabled": true,
+          "starting_text": "₹",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 1,
+          "minLablel": "1%",
+          "max": 30,
+          "maxLabel": "40%",
+          "step": 0.1
+        }
+      },
+      {
+        "id": "time_period_lumpsum",
+        "title": "Time Period",
+        "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 4,
+          "is_commas_enabled": false,
+          "starting_text": "",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 1,
+          "minLabel": "1Yr",
+          "max": 40,
+          "maxLabel": "44Yr",
+          "step": 1
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "expected_amount_lumpsum",
+        "title": "Expected Amount",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "calculateExpectedAmount",
+          "parameters": []
+        }
+      },
+      {
+        "id": "amount_invested_lumpsum",
+        "title": "Amount Invested",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "calculateAmountInvested",
+          "parameters": []
+        }
+      },
+      {
+        "id": "wealth_gain_lumpsum",
+        "title": "Wealth Gain",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "calculateWealthGain",
+          "parameters": []
+        }
+      }
+    ]
+  
+  }
+  

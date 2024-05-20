@@ -1,16 +1,6 @@
+import { TextOutputComponent } from "../utils/types";
 import classes from "./textOutput.module.css";
-export interface TextOutputComponent {
-  output: {
-    id: string;
-    title: string;
-    front_character: string;
-    back_character: string;
-    formula: {
-        formulaName: string;
-        parameters: string[];
-    };
-  }[];
-}
+
 export default function TextAreaOutput(props: TextOutputComponent) {
   return (
     <div>

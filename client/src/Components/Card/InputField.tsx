@@ -1,64 +1,26 @@
-import classes from "./InputField.module.css";
-import { updateValue } from "../../state/inputSlice";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import data from "../../assets/sip_calculator_data.json";
 import { RootState } from "../../state/store";
-export interface sliderInputComponent {
-  input: {
-    id: string;
-    title: string;
-    description: string;
-    text_box: {
-      is_visible: boolean;
-      placeholder_value: number;
-      is_commas_enabled: boolean;
-      starting_text: string;
-      input_type: string;
-    };
-    slider: {
-      is_visible: boolean;
-      min: number;
-      minLable: string;
-      max: number;
-      maxLable: string;
-      step: number;
-    };
-  };
-}
+import { updateInputValue } from "../../state/inputSlice";
+import { sliderInputComponent } from "../../utils/types";
+import makeSelectInputById from "../../utils/selectInputByID";
+import classes from "./InputField.module.css";
+
 export default function InputField(props: sliderInputComponent) {
   const dispatch = useDispatch();
 
-  // const [rangeVal, setRange] = useState<number>(props.input.text_box.placeholder_value);
-  // const [numVal, setNumVal] = useState<number>(props.input.text_box.placeholder_value);
-
-  // const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const newValue = parseInt(event.target.value);
-  //   dispatch(updateValue({id : props.input.id, value : newValue}))
-  // setRange(newValue);
-  // setNumVal(newValue);
-  // };
-
-  // const handleNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const newValue = parseInt(event.target.value);
-  // setRange(newValue);
-  // setNumVal(newValue);
-  // };
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = parseInt(event.target.value);
-    dispatch(updateValue({ id: props.input.id, value: newValue }));
-
+    const newValue = parseInt(event.target.value, 10);
+    dispatch(updateInputValue({ id: props.input.id, value: newValue }));
   };
-  const allInputs = data.inputs;
-  const index = allInputs.findIndex((item) => item.id === props.input.id);
-  const liveObj = useSelector((state: RootState) => state.inputs[index]); //corect logic
+
+  const selectInput = makeSelectInputById();
+  const liveObj = useSelector((state: RootState) => selectInput(state, props.input.id));
 
   return (
     <div className={classes.inputUnit}>
-    
-        <h2 className={classes.title}>{props.input.title}</h2>
-      
-      <p className={classes.discription}>{props.input.description}</p>
+      <h2 className={classes.title}>{props.input.title}</h2>
+      <p className={classes.description}>{props.input.description}</p>
       <div className={classes.inputComp}>
         <div className={classes.sliderInput}>
           <input
@@ -68,25 +30,21 @@ export default function InputField(props: sliderInputComponent) {
             max={props.input.slider.max}
             step={props.input.slider.step}
             width="250px"
-            // value={numVal}
-            value={liveObj.value}
+            value={liveObj?.value ?? props.input.text_box.placeholder_value}
             onChange={handleChange}
-          ></input>
+          />
           <div className={classes.constants}>
-            <span id={classes.minValue}>{props.input.slider.minLable}</span>
-            <span id={classes.maxValue}>{props.input.slider.maxLable}</span>
+            <span id={classes.minValue}>{props.input.slider.minLabel}</span>
+            <span id={classes.maxValue}>{props.input.slider.maxLabel}</span>
           </div>
         </div>
-        {/* <div className="div"> */}
         <input
           id={classes.numerical}
-          type={"number"}
-          // value={rangeVal}
-          value={liveObj.value}
+          type="number"
+          value={liveObj?.value ?? props.input.text_box.placeholder_value}
           step={props.input.slider.step}
           onChange={handleChange}
-        ></input>
-        {/* </div> */}
+        />
       </div>
     </div>
   );

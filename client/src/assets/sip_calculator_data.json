@@ -1,6 +1,7 @@
 {
   "calculator_type": "CALCULATOR_SIP",
   "template_type": "TEXT_SLIDER_PIE",
+  "page_title": "SIP Calculate Online",
   "header": "SIP Calculator",
   "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
   "inputs": [
@@ -10,7 +11,7 @@
       "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
       "text_box": {
         "is_visible": true,
-        "placeholder_value": 2000,
+        "placeholder_value": 1234,
         "is_commas_enabled": true,
         "starting_text": "₹",
         "input_type": "number"
@@ -18,9 +19,9 @@
       "slider": {
         "is_visible": true,
         "min": 500,
-        "minLable": "500",
+        "minLabel": "500",
         "max": 1000000,
-        "maxLable": "10L",
+        "maxLabel": "10L",
         "step": 500
       }
     },
@@ -38,9 +39,9 @@
       "slider": {
         "is_visible": true,
         "min": 1,
-        "minLable": "1%",
+        "minLabel": "1%",
         "max": 30,
-        "maxLable": "30%",
+        "maxLabel": "30%",
         "step": 0.1
       }
     },
@@ -58,9 +59,9 @@
       "slider": {
         "is_visible": true,
         "min": 1,
-        "minLable": "1Yr",
+        "minLabel": "1Yr",
         "max": 40,
-        "maxLable": "40Yr",
+        "maxLabel": "40Yr",
         "step": 1
       }
     }
@@ -97,5 +98,4 @@
       }
     }
   ]
-
 }
