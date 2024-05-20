@@ -1,25 +1,35 @@
-import { createSlice } from "@reduxjs/toolkit";
-import data from "../assets/sip_calculator_data.json";
-import { outputObj } from "../utils/types";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { OutputState } from "../utils/types";
 
-const initialState: outputObj[] = [];
+const initialState: OutputState = {
+  status: "idle",
+  data: [],
+};
 
-data.outputs.map((output) => {
-  initialState.push({ id: output.id, value: 5 });
-});
+
 
 const outputSlice = createSlice({
   name: "outputs",
   initialState,
   reducers: {
-    updateValue(state, action) {
-      // state
-      const index = data.outputs.findIndex(
-        (item) => item.id === action.payload.id
-      );
-      state[index].value = action.payload.value;
+   
+    
+    updateOutputValue(
+      state,
+      action: PayloadAction<{ id: string; value: number }>
+    ) {
+      const { id, value } = action.payload;
+      const output = state.data.find((item) => item.id === id);
+      if (output) {
+        output.value = value;
+      }else {
+        state.data.push({
+          id: id,
+          value:value,
+        })
+      }
     },
   },
 });
-export const { updateValue } = outputSlice.actions;
+export const { updateOutputValue } = outputSlice.actions;
 export default outputSlice.reducer;

@@ -10,6 +10,7 @@ export interface eachCalculatorIntro {
   };
 }
 export interface sliderInputComponent {
+ 
   input: {
     id: string;
     title: string;
@@ -35,13 +36,13 @@ export interface TextOutputComponent {
   output: {
     id: string;
     title: string;
-    front_character: string;
-    back_character: string;
+    front_character?: string;
+    back_character?: string;
     formula: {
       formulaName: string;
       parameters: string[];
     };
-  }[];
+  };
 }
 export interface calculatorType  {
   calculator_type: string;
@@ -64,4 +65,8 @@ export interface InputsState {
 export interface outputObj {
   id: string;
   value: number;
+}
+export interface OutputState {
+  status: "idle" | "error" | "loading";
+  data: outputObj[] ;
 }

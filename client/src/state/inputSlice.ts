@@ -44,6 +44,7 @@ export const fetchDataFromStore = () => async (
   const calciData = getState().calculator.liveCalculatorData;
 
   if (calciData?.inputs) {
+    
     dispatch(addNewValues(calciData.inputs));
   } else {
     console.warn("No calculator data found");
