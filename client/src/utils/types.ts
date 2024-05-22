@@ -32,12 +32,14 @@ export interface sliderInputComponent {
     };
   };
 }
+//OutputField
 export interface TextOutputComponent {
   output: {
     id: string;
     title: string;
     front_character?: string;
     back_character?: string;
+    value?:number;
     formula: {
       formulaName: string;
       parameters: string[];
@@ -49,11 +51,12 @@ export interface calculatorType  {
   template_type: string;
   page_title: string;
   header: string;
+  
   input_template_type: string;
   inputs: sliderInputComponent["input"][];
   outputs: TextOutputComponent["output"][];
 }
-
+//InputState
 export interface inputObj {
   id: string;
   value: number;
@@ -68,5 +71,5 @@ export interface outputObj {
 }
 export interface OutputState {
   status: "idle" | "error" | "loading";
-  data: outputObj[] ;
+  data: TextOutputComponent["output"][] ;
 }

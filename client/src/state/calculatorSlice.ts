@@ -29,8 +29,7 @@ const calculatorSlice = createSlice({
     },
   },
 });
-// export const selectLiveCalculatorData = (state): calculatorType| null =>  {return (state.calculator.liveCalculatorData)};
-export const selectLiveCalculatorData = {};
+
 
 export const {
   updateCalc,

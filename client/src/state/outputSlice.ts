@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { OutputState } from "../utils/types";
+import { OutputState, TextOutputComponent, inputObj } from "../utils/types";
+import { calculateOutputs } from "../utils/calculations";
 
 const initialState: OutputState = {
   status: "idle",
@@ -12,7 +13,12 @@ const outputSlice = createSlice({
   name: "outputs",
   initialState,
   reducers: {
-   
+
+    calculateOutput(state, action: 
+      PayloadAction<{ inputs: inputObj[], formulas: TextOutputComponent["output"][] }>) {
+      const { inputs, formulas } = action.payload;
+      state.data =calculateOutputs(inputs, formulas);
+    },
     
     updateOutputValue(
       state,
@@ -23,13 +29,16 @@ const outputSlice = createSlice({
       if (output) {
         output.value = value;
       }else {
-        state.data.push({
-          id: id,
-          value:value,
-        })
+        // state.data.push({
+        //   id: id,
+        //   value:value,
+        // })
       }
+    },
+    clearAllOutputs(state) {
+      state.data= [];
     },
   },
 });
-export const { updateOutputValue } = outputSlice.actions;
+export const { updateOutputValue ,clearAllOutputs ,calculateOutput} = outputSlice.actions;
 export default outputSlice.reducer;

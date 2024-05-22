@@ -1,0 +1,93 @@
+{
+  "calculator_type": "CALCULATOR_LOAN",
+  "template_type": "TEMPLATE_LOAN",
+  "page_title": "Loan Calculator",
+  "header": "Calculate Your Loan Payments",
+  "input_template_type": "SLIDER_AND_TEXTBOX",
+  "inputs": [
+    {
+      "id": "loan_amount",
+      "title": "Loan Amount (Rs.)",
+      "description": "Enter the total loan amount",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 100000,
+        "is_commas_enabled": true,
+        "starting_text": "",
+        "input_type": "number"
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 10000,
+        "minLabel": "10,000",
+        "max": 10000000,
+        "maxLabel": "1,00,00,000",
+        "step": 1000
+      }
+    },
+    {
+      "id": "interest_rate",
+      "title": "Annual Interest Rate (%)",
+      "description": "Enter the annual interest rate",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 8,
+        "is_commas_enabled": false,
+        "starting_text": "",
+        "input_type": "number"
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1%",
+        "max": 20,
+        "maxLabel": "20%",
+        "step": 0.1
+      }
+    },
+    {
+      "id": "loan_tenure",
+      "title": "Loan Tenure (Years)",
+      "description": "Enter the loan tenure in years",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 20,
+        "is_commas_enabled": false,
+        "starting_text": "",
+        "input_type": "number"
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1 Year",
+        "max": 30,
+        "maxLabel": "30 Years",
+        "step": 1
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthly_payment",
+      "title": "Monthly Payment (Rs.)",
+      "value": 0,
+      "front_character": "",
+      "back_character": "",
+      "formula": {
+        "formulaName": "LOAN",
+        "parameters": ["loan_amount", "interest_rate", "loan_tenure"]
+      }
+    },
+    {
+      "id": "total_payment",
+      "title": "Total Payment (Rs.)",
+      "value": 0,
+      "front_character": "",
+      "back_character": "",
+      "formula": {
+        "formulaName": "LOAN_TOTAL_PAYMENT",
+        "parameters": ["loan_amount", "interest_rate", "loan_tenure"]
+      }
+    }
+  ]
+}

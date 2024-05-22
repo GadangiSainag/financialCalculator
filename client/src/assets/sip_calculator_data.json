@@ -11,7 +11,7 @@
       "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
       "text_box": {
         "is_visible": true,
-        "placeholder_value": 1234,
+        "placeholder_value": 500000,
         "is_commas_enabled": true,
         "starting_text": "₹",
         "input_type": "number"
@@ -73,8 +73,8 @@
       "front_character": "₹",
       "back_character": "",
       "formula": {
-        "formulaName": "calculateExpectedAmount",
-        "parameters": []
+        "formulaName": "EXPECTED_SIP",
+        "parameters": ["monthly_investment_sip","expected_amount_sip", "time_period_sip"]
       }
     },
     {
@@ -83,8 +83,8 @@
       "front_character": "₹",
       "back_character": "",
       "formula": {
-        "formulaName": "calculateAmountInvested",
-        "parameters": []
+        "formulaName": "INVESTED_SIP",
+        "parameters": ["monthly_investment_sip","expected_amount_sip", "time_period_sip"]
       }
     },
     {
@@ -93,8 +93,8 @@
       "front_character": "₹",
       "back_character": "",
       "formula": {
-        "formulaName": "calculateWealthGain",
-        "parameters": []
+        "formulaName": "WEALTH_GAIN_SIP",
+        "parameters": ["monthly_investment_sip","expected_amount_sip", "time_period_sip"]
       }
     }
   ]

@@ -32,6 +32,17 @@
         "path": "swp-calculator",
         "config_file_name": "swp_calculator_data"
       }
+    },
+    {
+      "id": "4",
+      "header": "Loan Calculator",
+      "sub_text": "Calculate your monthly loan payments (can be changed at new_calculator_data.json)",
+      "footer_image": "https://example.com/loan_calculator_image.png",
+      "cta": {
+        "calculator_type": "CALCULATOR_LOAN",
+        "path": "loan-calculator",
+        "config_file_name": "loan_calculator_data"
+      }
     }
   ]
 }

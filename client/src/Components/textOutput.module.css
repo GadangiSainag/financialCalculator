@@ -17,11 +17,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 0px;
+  padding: 0px ;
 }
 
 .div1mini,
-.div2mini {
+.div2mini,
+.div3mini {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
