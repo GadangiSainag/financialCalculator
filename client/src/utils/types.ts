@@ -6,11 +6,10 @@ export interface eachCalculatorIntro {
   cta: {
     calculator_type: string;
     path: string;
-    config_file_name : string;
+    config_file_name: string;
   };
 }
 export interface sliderInputComponent {
- 
   input: {
     id: string;
     title: string;
@@ -39,22 +38,31 @@ export interface TextOutputComponent {
     title: string;
     front_character?: string;
     back_character?: string;
-    value?:number;
+    value?: number;
     formula: {
       formulaName: string;
       parameters: string[];
     };
   };
 }
-export interface calculatorType  {
+export interface PieLabel {
+  id: string;
+  label: string;
+  colour: string;
+}
+export interface calculatorType {
   calculator_type: string;
   template_type: string;
   page_title: string;
   header: string;
-  
+
   input_template_type: string;
   inputs: sliderInputComponent["input"][];
   outputs: TextOutputComponent["output"][];
+  pie: {
+    visible: boolean;
+    labels: PieLabel[];
+  };
 }
 //InputState
 export interface inputObj {
@@ -63,7 +71,7 @@ export interface inputObj {
 }
 export interface InputsState {
   status: "idle" | "error" | "loading";
-  data: inputObj[] ;
+  data: inputObj[];
 }
 export interface outputObj {
   id: string;
@@ -71,5 +79,5 @@ export interface outputObj {
 }
 export interface OutputState {
   status: "idle" | "error" | "loading";
-  data: TextOutputComponent["output"][] ;
+  data: TextOutputComponent["output"][];
 }

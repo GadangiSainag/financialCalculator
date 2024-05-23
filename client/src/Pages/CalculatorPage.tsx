@@ -8,14 +8,20 @@ import TextAreaOutput from "../Components/TextOutputArea";
 import allData from "../assets/landingPageData.json";
 import { setPageError, setPageSuccess } from "../state/calculatorSlice";
 import fetchCalciData from "../utils/fetchData";
-import { clearAllInputs, fetchDataFromStore, updateInputValue } from "../state/inputSlice";
+import {
+  clearAllInputs,
+  fetchDataFromStore,
+  updateInputValue,
+} from "../state/inputSlice";
 import { calculatorType, sliderInputComponent } from "../utils/types";
 import { RootState } from "../state/store";
 import { calculateOutput, clearAllOutputs } from "../state/outputSlice";
 
 const CalculatorPage: React.FC = () => {
-  const [calculatorData, setCalculatorData] = useState<calculatorType | null>(null);
-  const  {calculatorId}  = useParams<{ calculatorId: string }>();
+  const [calculatorData, setCalculatorData] = useState<calculatorType | null>(
+    null
+  );
+  const { calculatorId } = useParams<{ calculatorId: string }>();
   const dispatch = useDispatch();
   const inputs = useSelector((state: RootState) => state.inputs.data);
   const outputs = useSelector((state: RootState) => state.outputs.data);
@@ -23,40 +29,36 @@ const CalculatorPage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
- 
         const liveCalculator = allData.calculators.find(
           (calculator) => calculator.cta.path === calculatorId
         );
-    
 
         if (liveCalculator) {
           const data = await fetchCalciData(
             liveCalculator.cta.config_file_name
-          ) ;
-       
+          );
+
           setCalculatorData(data);
           dispatch(setPageSuccess(data));
-          
+
           dispatch(fetchDataFromStore());
         } else {
           dispatch(setPageError("Calculator not found"));
         }
       } catch (error) {
-
-
         dispatch(setPageError(error));
       }
     };
     // return () => {
-      dispatch(clearAllInputs());
-      dispatch(clearAllOutputs());
+    dispatch(clearAllInputs());
+    dispatch(clearAllOutputs());
     // }
     fetchData();
   }, [calculatorId, dispatch]);
 
   useEffect(() => {
     if (calculatorData) {
-    console.log("656")
+      console.log("656");
 
       dispatch(calculateOutput({ inputs, formulas: calculatorData.outputs }));
     }
@@ -64,7 +66,6 @@ const CalculatorPage: React.FC = () => {
 
   useEffect(() => {
     if (calculatorData?.page_title) {
-
       document.title = calculatorData.page_title.toUpperCase();
     }
   }, [calculatorData?.page_title]);
@@ -72,7 +73,6 @@ const CalculatorPage: React.FC = () => {
   const handleChange = (id: string, value: number) => {
     dispatch(updateInputValue({ id, value }));
   };
-
 
   if (!calculatorData) {
     return <div style={{ color: "white" }}>Loading...</div>;
@@ -94,10 +94,15 @@ const CalculatorPage: React.FC = () => {
               )}
           </div>
           <div className={classes.output}>
-            <div style={{ width: "fit-content", margin: "60px auto" }}>
-              <PieChart />
+            <div style={{ margin: "60px auto" }}>
+              {<PieChart pieData={outputs} pieInfo={calculatorData.pie} />}
             </div>
-            {outputs && (<TextAreaOutput outputInfo={calculatorData.outputs} outputValues={outputs} />            )}
+            {outputs && (
+              <TextAreaOutput
+                outputInfo={calculatorData.outputs}
+                outputValues={outputs}
+              />
+            )}
           </div>
         </div>
       </div>

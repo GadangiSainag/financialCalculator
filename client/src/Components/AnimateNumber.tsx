@@ -1,12 +1,13 @@
 // src/components/AnimatedNumber.tsx
-import React from 'react';
-import { useSpring, animated } from '@react-spring/web';
+import React from "react";
+import { useSpring, animated } from "@react-spring/web";
 
 interface AnimatedNumberProps {
   value: number | undefined;
+  symbol: string | undefined;
 }
 
-const AnimatedNumber: React.FC<AnimatedNumberProps> = ({ value }) => {
+const AnimatedNumber: React.FC<AnimatedNumberProps> = ({ value, symbol }) => {
   const { number } = useSpring({
     from: { number: 10 },
     number: value,
@@ -15,7 +16,10 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({ value }) => {
   });
 
   return (
-    <animated.div>{number.to((n) => n.toFixed(2))}</animated.div>
+    <div style={{ display: "flex", flexDirection: "row" }}>
+      <span style={{ marginRight: "5px" }}>{symbol}</span>
+      <animated.h3>{number.to((n) => n.toFixed(2))}</animated.h3>
+    </div>
   );
 };
 

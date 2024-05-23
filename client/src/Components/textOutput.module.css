@@ -1,5 +1,7 @@
 .parent {
   display: grid;
+  /* display :flex;
+  flex-direction: column; */
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 10px;
@@ -25,7 +27,7 @@
 .div3mini {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content:space-around;
   padding: 0px;
 }
 h3 {

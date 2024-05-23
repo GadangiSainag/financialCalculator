@@ -31,7 +31,7 @@
       "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
       "text_box": {
         "is_visible": true,
-        "placeholder_value": 2.4,
+        "placeholder_value": 2,
         "is_commas_enabled": true,
         "starting_text": "₹",
         "input_type": "number"
@@ -42,7 +42,7 @@
         "minLabel": "1%",
         "max": 30,
         "maxLabel": "30%",
-        "step": 0.1
+        "step": 0.2
       }
     },
     {
@@ -74,7 +74,11 @@
       "back_character": "",
       "formula": {
         "formulaName": "EXPECTED_SIP",
-        "parameters": ["monthly_investment_sip","expected_amount_sip", "time_period_sip"]
+        "parameters": [
+          "monthly_investment_sip",
+          "expected_amount_sip",
+          "time_period_sip"
+        ]
       }
     },
     {
@@ -84,7 +88,11 @@
       "back_character": "",
       "formula": {
         "formulaName": "INVESTED_SIP",
-        "parameters": ["monthly_investment_sip","expected_amount_sip", "time_period_sip"]
+        "parameters": [
+          "monthly_investment_sip",
+          "expected_amount_sip",
+          "time_period_sip"
+        ]
       }
     },
     {
@@ -94,8 +102,27 @@
       "back_character": "",
       "formula": {
         "formulaName": "WEALTH_GAIN_SIP",
-        "parameters": ["monthly_investment_sip","expected_amount_sip", "time_period_sip"]
+        "parameters": [
+          "monthly_investment_sip",
+          "expected_amount_sip",
+          "time_period_sip"
+        ]
       }
     }
-  ]
+  ],
+  "pie": {
+    "visible": true,
+    "labels": [
+      {
+        "id": "amount_invested_sip",
+        "label": "Amount Invested",
+        "colour": "rgba(77, 100, 141, 1)"
+      },
+      {
+        "id": "expected_amount_sip",
+        "label": "Expected Amount",
+        "colour": "rgba(30, 31, 38, 1)"
+      }
+    ]
+  }
 }
