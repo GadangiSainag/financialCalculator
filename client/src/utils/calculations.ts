@@ -22,13 +22,13 @@ export const calculateOutputs = (
       case "EXPECTED_SIP":
         calculatedValue = calculateExpectedAmountSIP(...values);
         break;
-        case "INVESTED_SIP":
+      case "INVESTED_SIP":
         calculatedValue = calculateInvestedSIP(...values);
         break;
-        case "WEALTH_GAIN_SIP":
+      case "WEALTH_GAIN_SIP":
         calculatedValue = calculateWelthgainSIP(...values);
         break;
-        
+
       case "LOAN":
         calculatedValue = calculateLoan(...values);
         break;
@@ -64,9 +64,6 @@ const calculateExpectedAmountSIP = (
     (1 + monthlyRate);
 
   return expectedAmount;
-  
-    
-  
 };
 const calculateInvestedSIP = (
   monthlyInvestment: number,
@@ -83,8 +80,6 @@ const calculateInvestedSIP = (
   const amountInvested = monthlyInvestment * months;
 
   return amountInvested;
-  
- 
 };
 const calculateWelthgainSIP = (
   monthlyInvestment: number,
@@ -103,7 +98,6 @@ const calculateWelthgainSIP = (
 
   return wealthGain;
 };
-
 
 const calculateLoan = (
   loanAmount: number,

@@ -63,6 +63,7 @@ export interface calculatorType {
     visible: boolean;
     labels: PieLabel[];
   };
+  description: string;
 }
 //InputState
 export interface inputObj {

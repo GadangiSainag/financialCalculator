@@ -16,7 +16,8 @@ import {
 import { calculatorType, sliderInputComponent } from "../utils/types";
 import { RootState } from "../state/store";
 import { calculateOutput, clearAllOutputs } from "../state/outputSlice";
-
+import ReactMarkdown from "react-markdown";
+import FaqSection from "../Components/FaqSection";
 const CalculatorPage: React.FC = () => {
   const [calculatorData, setCalculatorData] = useState<calculatorType | null>(
     null
@@ -105,6 +106,13 @@ const CalculatorPage: React.FC = () => {
             )}
           </div>
         </div>
+      </div>
+      <div className={classes.context}>
+        <div className={classes.description}>
+          <ReactMarkdown>{calculatorData.description}</ReactMarkdown>
+        </div>
+       
+      <FaqSection />
       </div>
     </div>
   );
