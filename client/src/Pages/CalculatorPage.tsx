@@ -111,8 +111,8 @@ const CalculatorPage: React.FC = () => {
         <div className={classes.description}>
           <ReactMarkdown>{calculatorData.description}</ReactMarkdown>
         </div>
-       
-      <FaqSection />
+      
+      <FaqSection faqData={calculatorData.faqs} />
       </div>
     </div>
   );

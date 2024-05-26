@@ -50,12 +50,16 @@ export interface PieLabel {
   label: string;
   colour: string;
 }
+export interface faqItem {
+  question: string;
+  answer: string;
+}
+
 export interface calculatorType {
   calculator_type: string;
   template_type: string;
   page_title: string;
   header: string;
-
   input_template_type: string;
   inputs: sliderInputComponent["input"][];
   outputs: TextOutputComponent["output"][];
@@ -64,7 +68,12 @@ export interface calculatorType {
     labels: PieLabel[];
   };
   description: string;
+  faqs: {
+    header: string;
+    items: faqItem[];
+  };
 }
+
 //InputState
 export interface inputObj {
   id: string;

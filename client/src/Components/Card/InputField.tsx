@@ -51,6 +51,7 @@ export default function InputField(props: Props) {
           <input
             id={classes.numerical}
             type="number"
+            
             value={liveObj?.value ?? props.input.text_box.placeholder_value}
             step={props.input.slider.step}
             onChange={handleChange}
