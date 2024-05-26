@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { RootState } from "../../state/store";
 import { sliderInputComponent } from "../../utils/types";
 import makeSelectInputById from "../../utils/selectInputByID";

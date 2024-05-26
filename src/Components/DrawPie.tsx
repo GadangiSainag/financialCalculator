@@ -1,6 +1,6 @@
-import { Pie, Doughnut } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import "chart.js/auto";
-import { PieLabel, TextOutputComponent, calculatorType } from "../utils/types";
+import { TextOutputComponent, calculatorType } from "../utils/types";
 interface Props {
   pieInfo: calculatorType["pie"];
   pieData: TextOutputComponent["output"][];
@@ -14,8 +14,6 @@ const PieChart = (props: Props) => {
   const valuesFromOutputData = props.pieData
     .filter((item) => idsFromPieData.includes(item.id))
     .map((item) => item.value);
-
-  // Define the data for two sectors with a visual gap between them
 
   const legendColours = props.pieInfo.labels.map(
     (eachLabel) => eachLabel.colour
@@ -44,14 +42,14 @@ const PieChart = (props: Props) => {
 
     plugins: {
       legend: {
-        position: "top",
+        position: "top" as const,
       },
     },
-    // To further enhance the "floating" effect, we can modify the rotation or circumference
+
     rotation: 90,
     circumference: 360,
   };
-  //   M = P * (((1 + i)^n - 1) / i) * (1 + i)
+
   return <Pie data={data} options={options} />;
 };
 

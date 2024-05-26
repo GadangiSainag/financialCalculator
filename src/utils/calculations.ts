@@ -1,4 +1,4 @@
-import { TextOutputComponent, inputObj, outputObj } from "./types";
+import { TextOutputComponent, inputObj } from "./types";
 
 export const calculateOutputs = (
   inputs: inputObj[],
@@ -13,27 +13,27 @@ export const calculateOutputs = (
   // Step 2: Iterate through each formula in the formulas array
   return formulas.map((output) => {
     const { formulaName, parameters } = output.formula;
-    const { id } = output;
+
     const values: number[] = parameters.map((param) => inputValues[param]);
     console.log(values);
     let calculatedValue = 0;
     // Step 3: Select and execute the appropriate formula
     switch (formulaName) {
       case "EXPECTED_SIP":
-        calculatedValue = calculateExpectedAmountSIP(...values);
+        calculatedValue = calculateExpectedAmountSIP(...(values as [number,number,number]));
         break;
       case "INVESTED_SIP":
-        calculatedValue = calculateInvestedSIP(...values);
+        calculatedValue = calculateInvestedSIP(...(values as [number,number]));
         break;
       case "WEALTH_GAIN_SIP":
-        calculatedValue = calculateWelthgainSIP(...values);
+        calculatedValue = calculateWelthgainSIP(...(values as [number,number,number]));
         break;
 
       case "LOAN":
-        calculatedValue = calculateLoan(...values);
+        calculatedValue = calculateLoan(...(values as [number,number,number]));
         break;
       case "LOAN_TOTAL_PAYMENT":
-        calculatedValue = calculateLoanTotalPayment(...values);
+        calculatedValue = calculateLoanTotalPayment(...(values as [number,number,number]));
         break;
       // Add more cases for other formulas here
       default:
@@ -67,16 +67,10 @@ const calculateExpectedAmountSIP = (
 };
 const calculateInvestedSIP = (
   monthlyInvestment: number,
-  annualReturns: number,
   investmentPeriod: number
 ): number => {
-  const monthlyRate = annualReturns / 12 / 100;
   const months = investmentPeriod * 12;
 
-  const expectedAmount =
-    monthlyInvestment *
-    (((1 + monthlyRate) ** months - 1) / monthlyRate) *
-    (1 + monthlyRate);
   const amountInvested = monthlyInvestment * months;
 
   return amountInvested;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import classes from "./CalculatorPage.module.css";
 import InputField from "../Components/Card/InputField";
 import PieChart from "../Components/DrawPie";
@@ -14,7 +14,7 @@ import {
   updateInputValue,
 } from "../state/inputSlice";
 import { calculatorType, sliderInputComponent } from "../utils/types";
-import { RootState } from "../state/store";
+import { RootState, useAppDispatch } from "../state/store";
 import { calculateOutput, clearAllOutputs } from "../state/outputSlice";
 import ReactMarkdown from "react-markdown";
 import FaqSection from "../Components/FaqSection";
@@ -23,7 +23,7 @@ const CalculatorPage: React.FC = () => {
     null
   );
   const { calculatorId } = useParams<{ calculatorId: string }>();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const inputs = useSelector((state: RootState) => state.inputs.data);
   const outputs = useSelector((state: RootState) => state.outputs.data);
 
@@ -111,8 +111,8 @@ const CalculatorPage: React.FC = () => {
         <div className={classes.description}>
           <ReactMarkdown>{calculatorData.description}</ReactMarkdown>
         </div>
-      
-      <FaqSection faqData={calculatorData.faqs} />
+
+        <FaqSection faqData={calculatorData.faqs} />
       </div>
     </div>
   );

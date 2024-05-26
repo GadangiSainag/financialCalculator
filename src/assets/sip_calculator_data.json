@@ -90,7 +90,6 @@
         "formulaName": "INVESTED_SIP",
         "parameters": [
           "monthly_investment_sip",
-          "expected_amount_sip",
           "time_period_sip"
         ]
       }

@@ -1,4 +1,4 @@
-import { TextOutputComponent, outputObj } from "../utils/types";
+import { TextOutputComponent } from "../utils/types";
 import AnimatedNumber from "./AnimateNumber";
 import classes from "./textOutput.module.css";
 interface Props {
