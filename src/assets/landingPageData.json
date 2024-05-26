@@ -1,0 +1,48 @@
+{
+  "calculators": [
+    {
+      "id": "1",
+      "header": "SIP",
+      "sub_text": "Discription for SIP calculator (can be changed at sip_calculator_data.json)",
+      "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
+      "cta": {
+        "calculator_type": "CALCULATOR_SIP",
+        "path": "sip-calculator",
+        "config_file_name": "sip_calculator_data"
+      }
+    },
+    {
+      "id": "2",
+      "header": "Lumpsum",
+      "sub_text": "Discription for LUMPSUM calculator (can be changed at lumpsum_calculator_data.json)",
+      "footer_image": "https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/lumpsum.1794f9ea.png",
+      "cta": {
+        "calculator_type": "CALCULATOR_LUMPSUM",
+        "path": "lumpsum-calculator",
+        "config_file_name": "lumpsum_calculator_data"
+      }
+    },
+    {
+      "id": "3",
+      "header": "SWP",
+      "sub_text": "Calculate how much you need to save or how much you will accumulate with your SIP",
+      "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
+      "cta": {
+        "calculator_type": "CALCULATOR_SWP",
+        "path": "swp-calculator",
+        "config_file_name": "swp_calculator_data"
+      }
+    },
+    {
+      "id": "4",
+      "header": "Loan Calculator",
+      "sub_text": "Calculate your monthly loan payments (can be changed at new_calculator_data.json)",
+      "footer_image": "https://example.com/loan_calculator_image.png",
+      "cta": {
+        "calculator_type": "CALCULATOR_LOAN",
+        "path": "loan-calculator",
+        "config_file_name": "loan_calculator_data"
+      }
+    }
+  ]
+}

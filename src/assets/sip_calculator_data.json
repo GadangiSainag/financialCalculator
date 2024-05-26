@@ -1,0 +1,150 @@
+{
+  "calculator_type": "CALCULATOR_SIP",
+  "template_type": "TEXT_SLIDER_PIE",
+  "page_title": "SIP Calculate Online",
+  "header": "SIP Calculator",
+  "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
+  "inputs": [
+    {
+      "id": "monthly_investment_sip",
+      "title": "Monthly investment",
+      "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 500000,
+        "is_commas_enabled": true,
+        "starting_text": "₹",
+        "input_type": "number"
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 500,
+        "minLabel": "500",
+        "max": 1000000,
+        "maxLabel": "10L",
+        "step": 500
+      }
+    },
+    {
+      "id": "expected_amount_sip",
+      "title": "Expected return rate (p.a)",
+      "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 2,
+        "is_commas_enabled": true,
+        "starting_text": "₹",
+        "input_type": "number"
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1%",
+        "max": 30,
+        "maxLabel": "30%",
+        "step": 0.2
+      }
+    },
+    {
+      "id": "time_period_sip",
+      "title": "Time Period",
+      "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 3,
+        "is_commas_enabled": false,
+        "starting_text": "",
+        "input_type": "number"
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1Yr",
+        "max": 40,
+        "maxLabel": "40Yr",
+        "step": 1
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "expected_amount_sip",
+      "title": "Expected Amount",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "EXPECTED_SIP",
+        "parameters": [
+          "monthly_investment_sip",
+          "expected_amount_sip",
+          "time_period_sip"
+        ]
+      }
+    },
+    {
+      "id": "amount_invested_sip",
+      "title": "Amount Invested",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "INVESTED_SIP",
+        "parameters": [
+          "monthly_investment_sip",
+          "expected_amount_sip",
+          "time_period_sip"
+        ]
+      }
+    },
+    {
+      "id": "wealth_gain_sip",
+      "title": "Wealth Gain",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "WEALTH_GAIN_SIP",
+        "parameters": [
+          "monthly_investment_sip",
+          "expected_amount_sip",
+          "time_period_sip"
+        ]
+      }
+    }
+  ],
+  "pie": {
+    "visible": true,
+    "labels": [
+      {
+        "id": "amount_invested_sip",
+        "label": "Amount Invested",
+        "colour": "rgba(77, 100, 141, 1)"
+      },
+      {
+        "id": "expected_amount_sip",
+        "label": "Expected Amount",
+        "colour": "rgba(30, 31, 38, 1)"
+      }
+    ]
+  },
+  "description": "## SIP Calculator – Systematic Investment Plan Calculator\nProspective investors can think that SIPs and mutual funds are the same. However, SIPs are merely a method of investing in mutual funds, the other method being a lump sum. A SIP calculator is a tool that helps you determine the returns you can avail when parking your funds in such investment tools. Systematic Investment Plan or SIP is a process of investing a fixed sum of money in mutual funds at regular intervals. SIPs usually allow you to invest weekly, quarterly, or monthly.\n## What is a SIP Calculator?\nA SIP calculator is a simple tool that allows individuals to get an idea of the returns on their mutual fund investments made through SIP. SIP investments in mutual funds have become one of the most popular investment options for millennials lately.\n\nThese mutual fund sip calculators are designed to give potential investors an estimate on their mutual fund investments. However, the actual returns offered by a mutual fund scheme varies depending on various factors. The SIP calculator does not provide clarification for the exit load and expense ratio (if any).\n\nThis calculator will calculate the wealth gain and expected returns for your monthly SIP investment. Indeed, you get a rough estimate on the maturity amount for any of your monthly SIP, based on a projected annual return rate.\nFew of the benefits of SIP calculators include –\n### Heres how it may help you\n- Assists you to determine the amount you want to invest in.\n- Tells you the total amount you have invested.\n- Gives an estimated value of the returns.\n- M = P × ({[1 + i]^n – 1} / i) × (1 + i)",
+  "faqs": {
+    "header": "FAQs",
+    "items": [
+      {
+        "question": "How much can I invest in a SIP?",
+        "answer": "There is no limit to the amount you can invest in a SIP. The minimum amount that you can invest is Rs. 500 per month."
+      },
+      {
+        "question": "What is the maximum tenure of a SIP?",
+        "answer": "There is no maximum tenure of a SIP. You can invest as long as you can. The minimum tenure you can go for is 3 years."
+      },
+      {
+        "question": "Are SIPs similar to mutual funds?",
+        "answer": "People often tend to think of SIP as either mutual funds or different than a mutual fund. The fact is that SIP is just a style of investment and not a fund/scheme or a stock/investment avenue. It is an investment vehicle to invest periodically in a fund/scheme of your choice."
+      },
+      {
+        "question": "Can I renew a SIP?",
+        "answer": "Yes, you can renew a SIP automatically. Companies also give you the option to cancel this auto-renew feature."
+      }
+    ]
+  }
+}

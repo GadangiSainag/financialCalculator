@@ -1,14 +1,15 @@
+/* dark to bottom
+ #070910
+ #FFFFFF
+ #1D1D24
+ #EBEBE5
+ #E2E2DC
+ #535965
+ #6C7E9C
+  */
 body {
   color: rgb(29, 29, 29);
-  /* dark to bottom
-    #070910
-    #FFFFFF
-    #1D1D24
-    #EBEBE5
-    #E2E2DC
-    #535965
-    #6C7E9C
-     */
+ 
   margin: 0 auto;
 }
 
