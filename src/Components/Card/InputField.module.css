@@ -22,19 +22,11 @@ input[type='range']::-webkit-slider-thumb {
 
 /* Number Input Styles */
 input[type='number'] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
-  appearance: textfield;
-  color: #070910;
-  background-color: #fdfdfd;
-  border: 2px solid #535965;
-  border-radius: 4px;
   height: 40px;
   width: 10px;
   text-align: right;
   font-size: medium;
   font-weight: 600;
-  
   color: #070910;
   line-height: 32px;
   background-color: #FDFDFD;
@@ -45,8 +37,7 @@ input[type='number'] {
   -moz-appearance: textfield;
   height: 92%;
   width: 90px;
-  /* max-width: 140px; */
-  /* text-align: center; */
+
   font-size: large;
   font-weight: 600;
   -moz-appearance: textfield;
