@@ -8,12 +8,13 @@
     {
       "id": "monthly_investment_sip",
       "title": "Monthly investment",
-      "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nulla at urna aliquet tincidunt.",
       "text_box": {
         "is_visible": true,
         "placeholder_value": 500000,
         "is_commas_enabled": true,
-        "starting_text": "₹",
+        "prefix": "₹",
+        "suffix" :"",
         "input_type": "number"
       },
       "slider": {
@@ -28,12 +29,13 @@
     {
       "id": "expected_amount_sip",
       "title": "Expected return rate (p.a)",
-      "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
+      "description": "Donec pellentesque mattis eros non luctus. Integer convallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
       "text_box": {
         "is_visible": true,
         "placeholder_value": 2,
         "is_commas_enabled": true,
-        "starting_text": "₹",
+        "prefix": "",
+        "suffix" :"%",
         "input_type": "number"
       },
       "slider": {
@@ -48,12 +50,13 @@
     {
       "id": "time_period_sip",
       "title": "Time Period",
-      "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
+      "description": "Curabitur varius, quam id lobortis pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
       "text_box": {
         "is_visible": true,
         "placeholder_value": 3,
         "is_commas_enabled": false,
-        "starting_text": "",
+        "prefix": "",
+        "suffix" :"Yr",
         "input_type": "number"
       },
       "slider": {

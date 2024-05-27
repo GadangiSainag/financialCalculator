@@ -1,19 +1,19 @@
 /* General Styles for Range Input */
-input[type="range"] {
+input[type='range'] {
   cursor: pointer;
   accent-color: #182445;
   background-color: #a1c0f2;
   width: 100%;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
+input[type='range']::-webkit-slider-runnable-track {
   height: 4px;
   border: 0;
   border-radius: 50%;
 }
 
 /* Thumb Styles for Range Input */
-input[type="range"]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   margin-top: -6px; /* Centers thumb on the track */
   border-radius: 50%;
   height: 16px;
@@ -21,7 +21,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* Number Input Styles */
-input[type="number"] {
+input[type='number'] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
@@ -30,19 +30,39 @@ input[type="number"] {
   border: 2px solid #535965;
   border-radius: 4px;
   height: 40px;
-  text-align: center;
+  width: 10px;
+  text-align: right;
   font-size: medium;
   font-weight: 600;
+  
+  color: #070910;
+  line-height: 32px;
+  background-color: #FDFDFD;
+  border: none;
+  outline: none;
+  appearance: none; /* Remove default styling on some browsers */
+  -webkit-appearance: none; /* Remove default styling on WebKit browsers */
+  -moz-appearance: textfield;
+  height: 92%;
+  width: 90px;
+  /* max-width: 140px; */
+  /* text-align: center; */
+  font-size: large;
+  font-weight: 600;
+  -moz-appearance: textfield;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
+  margin: 0;
 }
 
-input[type="number"]:focus,
-input[type="number"]:active {
-  border-style: ridge;
+input[type='number']:focus,
+input[type='number']:active {
+  outline: none; 
+  border: none; 
+  box-shadow: none;
 }
 
 /* Slider Input Container */
@@ -68,11 +88,40 @@ input[type="number"]:active {
   gap: 0 10%;
   align-items: center;
 }
-
+.outerNumerical {
+  display: flex;
+  padding: 0 10px;
+  /* width: 200px; */
+  /* min-width: 100px; */
+  width: fit-content;
+  margin: 0 auto;
+  color: #070910;
+  /* background-color: #fdfdfd; */
+  border: 2px solid #a4a8af;
+  border-radius: 4px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+.prefix{
+  display: flex;
+  height: 100%;
+  /* aspect-ratio: .4; */
+  font-size: large;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+}
+.suffix{
+  display: flex;
+  height: 100%;
+  /* aspect-ratio: .4; */
+  font-size: large;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+}
 #numerical {
-  width: 70%;
-  padding: 0 4px;
-  height: 38px;
 }
 
 /* Input Unit Container */

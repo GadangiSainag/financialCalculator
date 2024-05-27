@@ -18,7 +18,8 @@ export interface sliderInputComponent {
       is_visible: boolean;
       placeholder_value: number;
       is_commas_enabled: boolean;
-      starting_text: string;
+      prefix: string,
+      suffix :string,
       input_type: string;
     };
     slider: {

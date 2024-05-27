@@ -13,7 +13,7 @@ interface Props {
 export default function InputField(props: Props) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = Number(event.target.value);
-
+ 
     props.onChange(props.input.id, newValue);
     //dispatch(updateInputValue({ id: props.input.id, value: newValue }));
   };
@@ -48,6 +48,8 @@ export default function InputField(props: Props) {
         </div>
 
         {props.input.text_box.is_visible && (
+          <div className={classes.outerNumerical}>
+          <span className={classes.prefix}>{ props.input.text_box.prefix}</span>
           <input
             id={classes.numerical}
             type="number"
@@ -56,6 +58,8 @@ export default function InputField(props: Props) {
             step={props.input.slider.step}
             onChange={handleChange}
           />
+          <span className={classes.suffix}>{props.input.text_box.suffix }</span>
+</div>
         )}
       </div>
     </div>
