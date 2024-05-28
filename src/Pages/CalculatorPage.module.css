@@ -1,22 +1,19 @@
-.description{
-
+.description {
   text-align: left;
-
-  
 }
-.context{
-  background-color: rgba(255,255,255,0.02);
+.context {
+  background-color: rgba(255, 255, 255, 0.02);
   color: white;
-  width : 82%;
+  width: 82%;
   margin: 0 auto;
   padding: 40px 40px;
-  border: white solid  1px;
+  border: white solid 1px;
   border-radius: 1.2rem;
   backdrop-filter: blur(5px) saturate(161%);
-    -webkit-backdrop-filter: blur(5px) saturate(161%);
-    background-color: rgba(17, 25, 40, 0.14);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+  -webkit-backdrop-filter: blur(5px) saturate(161%);
+  background-color: rgba(17, 25, 40, 0.14);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 .card {
   /* position: relative; */
@@ -30,39 +27,16 @@
   margin: 100px auto 50px;
   padding: 20px 20px 100px;
 }
-
-@media only screen and (max-width: 767px) {
-  .card {
-    width: 80%;
-  }
-
- 
-}
-@media only screen and (max-width: 425px) {
-  .output{
-    width: 85% ;
-    margin: 0px auto;
-    /* padding:0px; */
-    flex-direction: column-reverse ;
-  };
-  .card {
-    width: 90%;
-  }
-  .container{
-    flex-direction: column ;
-  }
- 
-}
 .divi {
   width: 100%;
-  margin: 0 0 0 4% ;
+  margin: 0 0 0 4%;
 }
 .element {
-  margin: 20px 0 60px;
+  margin: 20px auto 60px;
 }
 .output {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   width: 90%;
   padding: 0 5%;
   margin: 0 3%;
@@ -79,13 +53,38 @@ header {
 }
 
 span {
-  font-size:x-large;
+  font-size: x-large;
 }
-.container{
+.container {
   display: flex;
 }
+
+@media (max-width: 768px) {
+  .card {
+    width: 92%;
+  }
+}
+
+@media (max-width: 442px) {
+  .output {
+    /* width: 85%; */
+    margin: 0px auto;
+    /* padding:0px; */
+    flex-direction: column-reverse;
+  }
+  .card {
+    width: 85%;
+    padding-bottom: 40px;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .divi {
+    margin: 0px;
+  }
+  .element{
+    margin:20px auto ;
+  }
+}
+
 /* ------------------------------------------------------------- */
-
-
-
-

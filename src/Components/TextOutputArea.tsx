@@ -9,7 +9,7 @@ export default function TextAreaOutput(props: Props) {
   return (
     <div>
       {/* <h1>{props.output[1].}</h1>  */}
-      <h1 style={{ fontSize: "2 .5em" }}>₹2,14,522 /month</h1>
+      {/* <h1 style={{ fontSize: "2 .5em" }}>₹2,14,522 /month</h1> */}
       <div className={classes.parent}>
         {props.outputValues.map(
           (eachElement: TextOutputComponent["output"], index: number) => (
