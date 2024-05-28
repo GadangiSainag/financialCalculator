@@ -13,29 +13,53 @@ export const calculateOutputs = (
   // Step 2: Iterate through each formula in the formulas array
   return formulas.map((output) => {
     const { formulaName, parameters } = output.formula;
-
     const values: number[] = parameters.map((param) => inputValues[param]);
     console.log(values);
     let calculatedValue = 0;
     // Step 3: Select and execute the appropriate formula
     switch (formulaName) {
       case "EXPECTED_SIP":
-        calculatedValue = calculateExpectedAmountSIP(...(values as [number,number,number]));
+        calculatedValue = calculateExpectedAmountSIP(
+          ...(values as [number, number, number])
+        );
         break;
       case "INVESTED_SIP":
-        calculatedValue = calculateInvestedSIP(...(values as [number,number]));
+        calculatedValue = calculateInvestedSIP(...(values as [number, number]));
         break;
       case "WEALTH_GAIN_SIP":
-        calculatedValue = calculateWelthgainSIP(...(values as [number,number,number]));
+        calculatedValue = calculateWelthgainSIP(
+          ...(values as [number, number, number])
+        );
         break;
-
       case "LOAN":
-        calculatedValue = calculateLoan(...(values as [number,number,number]));
+        calculatedValue = calculateLoan(
+          ...(values as [number, number, number])
+        );
         break;
       case "LOAN_TOTAL_PAYMENT":
-        calculatedValue = calculateLoanTotalPayment(...(values as [number,number,number]));
+        calculatedValue = calculateLoanTotalPayment(
+          ...(values as [number, number, number])
+        );
         break;
-      // Add more cases for other formulas here
+      case "MONTHLY_EMI":
+        calculatedValue = calculateMonthlyEMI(
+          ...(values as [number, number, number])
+        );
+        // Add more cases for other formulas here
+        break;
+      case "PRINCIPAL_AMOUNT":
+        calculatedValue = calculatePrincipalAmount(...(values as [number]));
+        break;
+      case "TOTAL_INTEREST":
+        calculatedValue = calculateTotalInterest(
+          ...(values as [number, number, number])
+        );
+        break;
+      case "TOTAL_AMOUNT":
+        calculatedValue = calculateTotalAmount(
+          ...(values as [number, number, number])
+        );
+        break;
       default:
         throw new Error(`Unknown formula: ${formulaName}`);
     }
@@ -120,4 +144,60 @@ const calculateLoanTotalPayment = (
 
   const totalPayment = monthlyPayment * numberOfMonths;
   return totalPayment;
+};
+
+const calculateMonthlyEMI = (
+  loanAmount: number,
+  annualInterestRate: number,
+  loanTenureYears: number
+): number => {
+  const monthlyInterestRate = annualInterestRate / 12 / 100;
+  const numberOfMonths = loanTenureYears * 12;
+
+  const emi =
+    (loanAmount *
+      monthlyInterestRate *
+      (1 + monthlyInterestRate) ** numberOfMonths) /
+    ((1 + monthlyInterestRate) ** numberOfMonths - 1);
+
+  return emi;
+};
+
+const calculatePrincipalAmount = (loanAmount: number): number => {
+  return loanAmount;
+};
+
+const calculateTotalInterest = (
+  loanAmount: number,
+  annualInterestRate: number,
+  loanTenureYears: number
+): number => {
+  const monthlyEMI = calculateMonthlyEMI(
+    loanAmount,
+    annualInterestRate,
+    loanTenureYears
+  );
+  const numberOfMonths = loanTenureYears * 12;
+
+  const totalAmountPayable = monthlyEMI * numberOfMonths;
+  const totalInterest = totalAmountPayable - loanAmount;
+
+  return totalInterest;
+};
+
+const calculateTotalAmount = (
+  loanAmount: number,
+  annualInterestRate: number,
+  loanTenureYears: number
+): number => {
+  const monthlyEMI = calculateMonthlyEMI(
+    loanAmount,
+    annualInterestRate,
+    loanTenureYears
+  );
+  const numberOfMonths = loanTenureYears * 12;
+
+  const totalAmountPayable = monthlyEMI * numberOfMonths;
+
+  return totalAmountPayable;
 };

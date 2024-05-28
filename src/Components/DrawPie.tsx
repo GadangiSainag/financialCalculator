@@ -11,14 +11,12 @@ const PieChart = (props: Props) => {
 
   const labels = props.pieInfo.labels.map((each) => each.label);
 
-  const valuesFromOutputData = props.pieData
-    .filter((item) => idsFromPieData.includes(item.id))
-    .map((item) => item.value);
+  const valuesFromOutputData = props.pieData.filter((item) => idsFromPieData.includes(item.id)).map((item) => item.value);
 
   const legendColours = props.pieInfo.labels.map(
     (eachLabel) => eachLabel.colour
   );
-
+// labels.reverse();
   const data = {
     datasets: [
       {
@@ -43,6 +41,11 @@ const PieChart = (props: Props) => {
     plugins: {
       legend: {
         position: "top" as const,
+        align: 'center' as const,
+        labels:{
+          usePointStyle:true,
+          pointStyle:"rect"
+        }
       },
     },
 

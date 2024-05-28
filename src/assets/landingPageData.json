@@ -43,6 +43,17 @@
         "path": "loan-calculator",
         "config_file_name": "loan_calculator_data"
       }
+    },
+    {
+      "id": "5",
+      "header": "Home Loan EMI",
+      "sub_text": "Calculate your Home Loan EMI",
+      "footer_image": "https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/homeLoanEmi.217168f1.png",
+      "cta": {
+        "calculator_type": "CALCULATOR_LOAN",
+        "path": "home-loan-emi-calculator",
+        "config_file_name": "home_loan_emi_data"
+      }
     }
   ]
 }

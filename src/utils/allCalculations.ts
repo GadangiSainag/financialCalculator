@@ -4,7 +4,7 @@ interface InvestmentInputs {
   expectedAnnualReturns: number; // Expected Annual Returns (%)
 }
 
-        
+        // //////////////////////////////////////////////////////////////////JUST A TEMP FILE , NO USE 
 
 interface InvestmentOutputs {
   expectedAmount: number; // Expected Amount

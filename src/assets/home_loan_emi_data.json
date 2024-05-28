@@ -1,0 +1,164 @@
+{
+    "calculator_type": "CALCULATOR_HOME_LOAN",
+    "template_type": "TEXT_SLIDER_PIE",
+    "page_title": "Home Loan EMI Calculate Online",
+    "header": "Home Loan EMI Calculator",
+    "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
+    "inputs": [
+      {
+        "id": "loan_amount",
+        "title": "Loan Amount",
+        "description": "",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 5000000,
+          "is_commas_enabled": true,
+          "prefix": "₹",
+          "suffix": "",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 100000,
+          "minLabel": "1L",
+          "max": 100000000,
+          "maxLabel": "10Cr",
+          "step": 50000
+        }
+      },
+      {
+        "id": "rate_of_interest",
+        "title": "Rate of Interest (p.a)",
+        "description": "Annual rate of interest for the loan.",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 7,
+          "is_commas_enabled": false,
+          "prefix": "",
+          "suffix": "%",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 1,
+          "minLabel": "1%",
+          "max": 20,
+          "maxLabel": "20%",
+          "step": 0.1
+        }
+      },
+      {
+        "id": "loan_tenure",
+        "title": "Loan Tenure",
+        "description": "Tenure of the loan in years.",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 20,
+          "is_commas_enabled": false,
+          "prefix": "",
+          "suffix": "Yr",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 1,
+          "minLabel": "1Yr",
+          "max": 40,
+          "maxLabel": "40Yr",
+          "step": 1
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "monthly_emi",
+        "title": "Monthly EMI",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "MONTHLY_EMI",
+          "parameters": [
+            "loan_amount",
+            "rate_of_interest",
+            "loan_tenure"
+          ]
+        }
+      },
+      {
+        "id": "principal_amount",
+        "title": "Principal Amount",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "PRINCIPAL_AMOUNT",
+          "parameters": ["loan_amount"]
+        }
+      },
+      {
+        "id": "total_interest",
+        "title": "Total Interest",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "TOTAL_INTEREST",
+          "parameters": [
+            "loan_amount",
+            "rate_of_interest",
+            "loan_tenure"
+          ]
+        }
+      },
+      {
+        "id": "total_amount",
+        "title": "Total Amount",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "TOTAL_AMOUNT",
+          "parameters": [
+            "loan_amount",
+            "rate_of_interest",
+            "loan_tenure"
+          ]
+        }
+      }
+    ],
+    "pie": {
+      "visible": true,
+      "labels": [
+        {
+            "id": "principal_amount",
+            "label": "Principal Amount",
+            "colour": "rgba(77, 100, 141, 1)"
+          },
+          {
+            "id": "total_interest",
+            "label": "Total Interest",
+            "colour": "rgba(30, 31, 38, 1)"
+          }
+      ]
+    },
+    "description": "## Home Loan EMI Calculator\nA Home Loan EMI Calculator is a tool that helps you calculate the monthly installment you need to pay for your home loan. It takes into account the loan amount, rate of interest, and loan tenure to calculate the EMI. This tool is useful for prospective home buyers to understand their monthly financial commitment towards the loan.\n\n### Benefits of Home Loan EMI Calculator\n- Easy calculation of monthly EMIs.\n- Helps in financial planning.\n- Provides a clear understanding of the loan repayment structure.",
+    "faqs": {
+      "header": "FAQs",
+      "items": [
+        {
+          "question": "What is EMI?",
+          "answer": "EMI stands for Equated Monthly Installment. It is the amount you need to pay every month to repay your loan."
+        },
+        {
+          "question": "How is EMI calculated?",
+          "answer": "EMI is calculated using the loan amount, rate of interest, and loan tenure. The formula for EMI calculation is: EMI = [P x R x (1+R)^N]/[(1+R)^N-1], where P is the loan amount, R is the monthly interest rate, and N is the number of installments."
+        },
+        {
+          "question": "Can I prepay my home loan?",
+          "answer": "Yes, most lenders allow prepayment of home loans. However, there may be a prepayment penalty depending on the lender's policy."
+        },
+        {
+          "question": "What happens if I miss an EMI payment?",
+          "answer": "Missing an EMI payment can lead to a penalty and may affect your credit score. It is important to ensure timely payments to avoid these issues."
+        }
+      ]
+    }
+  }
+  

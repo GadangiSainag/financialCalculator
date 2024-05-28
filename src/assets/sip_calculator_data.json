@@ -14,7 +14,7 @@
         "placeholder_value": 500000,
         "is_commas_enabled": true,
         "prefix": "₹",
-        "suffix" :"",
+        "suffix": "",
         "input_type": "number"
       },
       "slider": {
@@ -35,7 +35,7 @@
         "placeholder_value": 2,
         "is_commas_enabled": true,
         "prefix": "",
-        "suffix" :"%",
+        "suffix": "%",
         "input_type": "number"
       },
       "slider": {
@@ -56,7 +56,7 @@
         "placeholder_value": 3,
         "is_commas_enabled": false,
         "prefix": "",
-        "suffix" :"Yr",
+        "suffix": "Yr",
         "input_type": "number"
       },
       "slider": {
@@ -91,10 +91,7 @@
       "back_character": "",
       "formula": {
         "formulaName": "INVESTED_SIP",
-        "parameters": [
-          "monthly_investment_sip",
-          "time_period_sip"
-        ]
+        "parameters": ["monthly_investment_sip", "time_period_sip"]
       }
     },
     {
