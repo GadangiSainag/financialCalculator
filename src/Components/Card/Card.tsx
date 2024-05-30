@@ -18,7 +18,7 @@ export default function Card(props: calculator) {
   return (
     <div
       className={classes.card}
-      onClick={() => navigate(`/${props.eachCalculator.cta.path}`)}
+      onClick={() => navigate(`/calculator/${props.eachCalculator.cta.path}`)}
     >
       <p className={classes.title}>{props.eachCalculator.header}</p>
       <p className={classes.discription}>{props.eachCalculator.sub_text}</p>
