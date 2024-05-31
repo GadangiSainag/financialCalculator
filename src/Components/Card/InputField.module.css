@@ -23,7 +23,6 @@ input[type='range']::-webkit-slider-thumb {
 /* Number Input Styles */
 input[type='number'] {
   height: 40px;
-  width: 10px;
   text-align: right;
   font-size: medium;
   font-weight: 600;
@@ -36,7 +35,7 @@ input[type='number'] {
   -webkit-appearance: none; /* Remove default styling on WebKit browsers */
   -moz-appearance: textfield;
   height: 92%;
-  width: 90px;
+  width: 100px;
 
   font-size: large;
   font-weight: 600;

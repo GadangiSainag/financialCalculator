@@ -29,7 +29,7 @@
     {
       "id": "expected_amount_sip",
       "title": "Expected return rate (p.a)",
-      "description": "Donec pellentesque mattis eros non luctus. Integer convallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
+      "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
       "text_box": {
         "is_visible": true,
         "placeholder_value": 2,
@@ -50,7 +50,7 @@
     {
       "id": "time_period_sip",
       "title": "Time Period",
-      "description": "Curabitur varius, quam id lobortis pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+      "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
       "text_box": {
         "is_visible": true,
         "placeholder_value": 3,

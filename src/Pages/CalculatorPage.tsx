@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import classes from "./CalculatorPage.module.css";
 import InputField from "../Components/Card/InputField";
 import PieChart from "../Components/DrawPie";
@@ -59,8 +59,6 @@ const CalculatorPage: React.FC = () => {
 
   useEffect(() => {
     if (calculatorData) {
-      console.log("656");
-
       dispatch(calculateOutput({ inputs, formulas: calculatorData.outputs }));
     }
   }, [inputs, dispatch, calculatorData]);

@@ -1,5 +1,5 @@
 import classes from "./NavBar.module.css";
-import logo from "../../public/favicon.svg";
+import logo from "/favicon.svg";
 export default function NavBar() {
   return (
     <div className={classes.navbar}>

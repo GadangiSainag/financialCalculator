@@ -67,7 +67,7 @@ export default function InputField(props: Props) {
               value={liveObj?.value ?? props.input.text_box.placeholder_value}
               step={props.input.slider.step}
               onChange={handleChange}
-              placeholder={"16454"}
+             
             />
             <span className={classes.suffix}>
               {props.input.text_box.suffix}
