@@ -11,9 +11,18 @@ interface Props {
 }
 
 export default function InputField(props: Props) {
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = Number(event.target.value);
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let newValue = Number(event.target.value);
+  if (isNaN(newValue)) {
+    newValue = props.input.slider.min;
+    }
+    if (newValue < props.input.slider.min) {
+      newValue = props.input.slider.min;
+    }
+    if (newValue > props.input.slider.max) {
+      newValue = props.input.slider.max;
+    }
     props.onChange(props.input.id, newValue);
     //dispatch(updateInputValue({ id: props.input.id, value: newValue }));
   };
@@ -58,6 +67,7 @@ export default function InputField(props: Props) {
               value={liveObj?.value ?? props.input.text_box.placeholder_value}
               step={props.input.slider.step}
               onChange={handleChange}
+              placeholder={"16454"}
             />
             <span className={classes.suffix}>
               {props.input.text_box.suffix}
