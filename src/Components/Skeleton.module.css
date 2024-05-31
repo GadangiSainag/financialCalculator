@@ -1,0 +1,67 @@
+.inputBlock {
+  background-color: #b5b5b5;
+  height: 120px;
+  margin: 20px 0px;
+  border-radius: 20px;
+}
+.card {
+  width: 70%;
+  height: fit-content;
+  background-color: #ffffff;
+  border-radius: 6px;
+  margin: 100px auto 50px;
+  padding: 20px 20px 100px;
+}
+.container {
+  display: flex;
+  margin-top: 20px;
+}
+.output {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 0 5%;
+  margin: 0 3%;
+  background-color: #c3d7f0;
+  text-align: center;
+  border-radius: 8px;
+}
+header {
+  margin: 0;
+  font-weight: 600;
+  font-size: 42px;
+}
+.inputs {
+  width: 100%;
+  margin: 0 0 0 4%;
+}
+
+.circlePie {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  background-color: #37578daa;
+}
+@media (max-width: 768px) {
+  .card {
+    width: 92%;
+  }
+}
+
+@media (max-width: 442px) {
+  .output {
+    margin: 0px auto;
+    flex-direction: column-reverse;
+    height: fit-content;
+  }
+  .card {
+    width: 85%;
+    height: fit-content;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .inputs {
+    margin: 0px;
+  }
+}

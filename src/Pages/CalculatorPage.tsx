@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import classes from "./CalculatorPage.module.css";
 import InputField from "../Components/Card/InputField";
@@ -18,7 +18,9 @@ import { RootState, useAppDispatch } from "../state/store";
 import { calculateOutput, clearAllOutputs } from "../state/outputSlice";
 import ReactMarkdown from "react-markdown";
 import FaqSection from "../Components/FaqSection";
+import SkeletonLoading from "../Components/Skeleton";
 const CalculatorPage: React.FC = () => {
+  const navigate = useNavigate();
   const [calculatorData, setCalculatorData] = useState<calculatorType | null>(
     null
   );
@@ -45,6 +47,7 @@ const CalculatorPage: React.FC = () => {
           dispatch(fetchDataFromStore());
         } else {
           dispatch(setPageError("Calculator not found"));
+          navigate("/404");
         }
       } catch (error) {
         dispatch(setPageError(error));
@@ -55,7 +58,7 @@ const CalculatorPage: React.FC = () => {
     dispatch(clearAllOutputs());
     // }
     fetchData();
-  }, [calculatorId, dispatch]);
+  }, [calculatorId, dispatch, navigate]);
 
   useEffect(() => {
     if (calculatorData) {
@@ -74,7 +77,7 @@ const CalculatorPage: React.FC = () => {
   };
 
   if (!calculatorData) {
-    return <div style={{ color: "white" }}>Loading...</div>;
+    return <SkeletonLoading />;
   }
 
   return (
@@ -82,7 +85,7 @@ const CalculatorPage: React.FC = () => {
       <div className={classes.card}>
         <header>{calculatorData.header}</header>
         <div className={classes.container}>
-          <div className={classes.divi}>
+          <div className={classes.inputs}>
             {calculatorData.inputs &&
               calculatorData.inputs.map(
                 (eachInput: sliderInputComponent["input"]) => (
@@ -109,7 +112,6 @@ const CalculatorPage: React.FC = () => {
         <div className={classes.description}>
           <ReactMarkdown>{calculatorData.description}</ReactMarkdown>
         </div>
-
         <FaqSection faqData={calculatorData.faqs} />
       </div>
     </div>

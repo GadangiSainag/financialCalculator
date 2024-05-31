@@ -2,22 +2,21 @@ import "./App.css";
 import NavBar from "./Components/NavBar";
 import CalculatorPage from "./Pages/CalculatorPage";
 import LandingPage from "./Pages/LandingPage";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import NotFound from "./Pages/NotFound";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <NavBar />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/calculator/:calculatorId" element={<CalculatorPage />} />
-          <Route path="/home" element={<LandingPage />} />
-          <Route path="" element={<Navigate to="/home" />} />
-          <Route path="/*" element={<Navigate to="/404" />} />
-          <Route path="/404" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+      <Routes>
+        <Route path="/calculator/:calculatorId" element={<CalculatorPage />} />
+        <Route path="/home" element={<LandingPage />} />
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/404" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
