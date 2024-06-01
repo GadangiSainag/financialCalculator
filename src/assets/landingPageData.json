@@ -3,7 +3,7 @@
     {
       "id": "1",
       "header": "SIP",
-      "sub_text": "Discription for SIP calculator (can be changed at sip_calculator_data.json)",
+      "sub_text": "Discription for SIP calculator",
       "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
       "cta": {
         "calculator_type": "CALCULATOR_SIP",
@@ -14,7 +14,7 @@
     {
       "id": "2",
       "header": "Lumpsum",
-      "sub_text": "Discription for LUMPSUM calculator (can be changed at lumpsum_calculator_data.json)",
+      "sub_text": "Discription for LUMPSUM calculator.",
       "footer_image": "https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/lumpsum.1794f9ea.png",
       "cta": {
         "calculator_type": "CALCULATOR_LUMPSUM",
@@ -35,13 +35,13 @@
     },
     {
       "id": "4",
-      "header": "Loan Calculator",
-      "sub_text": "Calculate your monthly loan payments (can be changed at new_calculator_data.json)",
-      "footer_image": "https://example.com/loan_calculator_image.png",
+      "header": "Car Loan EMI",
+      "sub_text": "Calculate your car loan EMI",
+      "footer_image": "https://assets-netstorage.groww.in/web-assets/bill…p/prod/_next/static/media/carLoanEmi.6c269820.png",
       "cta": {
-        "calculator_type": "CALCULATOR_LOAN",
-        "path": "loan-calculator",
-        "config_file_name": "loan_calculator_data"
+        "calculator_type": "CALCULATOR_CAR_LOAN",
+        "path": "car-loan-emi",
+        "config_file_name": "car_loan_emi_data"
       }
     },
     {
@@ -51,7 +51,7 @@
       "footer_image": "https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/homeLoanEmi.217168f1.png",
       "cta": {
         "calculator_type": "CALCULATOR_LOAN",
-        "path": "home-loan-emi-calculator",
+        "path": "home-loan-emi",
         "config_file_name": "home_loan_emi_data"
       }
     }

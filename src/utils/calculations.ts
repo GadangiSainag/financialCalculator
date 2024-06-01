@@ -18,6 +18,8 @@ export const calculateOutputs = (
     let calculatedValue = 0;
     // Step 3: Select and execute the appropriate formula
     switch (formulaName) {
+      // SIP Calculator
+
       case "EXPECTED_SIP":
         calculatedValue = calculateExpectedAmountSIP(
           ...(values as [number, number, number])
@@ -27,12 +29,44 @@ export const calculateOutputs = (
         calculatedValue = calculateInvestedSIP(...(values as [number, number]));
         break;
       case "WEALTH_GAIN_SIP":
-        calculatedValue = calculateWelthgainSIP(
+        calculatedValue = calculateWealthGainSIP(
           ...(values as [number, number, number])
         );
         break;
-      case "LOAN":
-        calculatedValue = calculateLoan(
+      // Lumpsum Calculator
+      case "INVESTED_AMOUNT_LUMPSUM":
+        calculatedValue = calculateInvestedAmountLumpsum(
+          ...(values as [number])
+        );
+        break;
+      case "ESTIMATED_RETURNS_LUMPSUM":
+        calculatedValue = calculateEstimatedReturnsLumpsum(
+          ...(values as [number, number, number])
+        );
+        break;
+      case "TOTAL_VALUE_LUMPSUM":
+        calculatedValue = calculateTotalValueLumpsum(
+          ...(values as [number, number, number])
+        );
+        break;
+      // SWP Calculator
+      case "TOTAL_INVESTMENT_SWP":
+        calculatedValue = valueStraightFromInput(...(values as [number]));
+        break;
+      case "TOTAL_WITHDRAWAL_SWP":
+        calculatedValue = calculateTotalWithdrawalSWP(
+          ...(values as [number, number])
+        );
+        break;
+      case "FINAL_VALUE_SWP":
+        calculatedValue = calculateFinalValueSWP(
+          ...(values as [number, number, number, number])
+        );
+        break;
+
+      // Loan
+      case "LOAN_EMI":
+        calculatedValue = calculateLoanEMI(
           ...(values as [number, number, number])
         );
         break;
@@ -42,10 +76,9 @@ export const calculateOutputs = (
         );
         break;
       case "MONTHLY_EMI":
-        calculatedValue = calculateMonthlyEMI(
+        calculatedValue = calculateLoanEMI(
           ...(values as [number, number, number])
         );
-        // Add more cases for other formulas here
         break;
       case "PRINCIPAL_AMOUNT":
         calculatedValue = calculatePrincipalAmount(...(values as [number]));
@@ -60,20 +93,48 @@ export const calculateOutputs = (
           ...(values as [number, number, number])
         );
         break;
+      // Car Loan EMI
+      case "CAR_LOAN_EMI":
+        calculatedValue = calculateCarLoanEMI(
+          ...(values as [number, number, number])
+        );
+        break;
+      case "CAR_LOAN_TOTAL_PAYMENT":
+        calculatedValue = calculateCarLoanTotalPayment(
+          ...(values as [number, number, number])
+        );
+        break;
+
+      case "CAR_LOAN_TOTAL_INTEREST":
+        calculatedValue = calculateCarLoanTotalInterest(
+          ...(values as [number, number, number])
+        );
+        break;
+
+      case "CAR_LOAN_PRINCIPAL_AMOUNT":
+        calculatedValue = calculateCarLoanPrincipalAmount(
+          ...(values as [number])
+        );
+        break;
       default:
         throw new Error(`Unknown formula: ${formulaName}`);
     }
 
     // Step 4: Return the output with the calculated value
+    calculatedValue= ~~ calculatedValue;
     return {
-      // id : output.id,
       ...output,
       value: calculatedValue,
     };
   });
 };
 
-// Example formula functions
+// All formula functions (including new ones for Lumpsum, SWP, and Car Loan calculators)
+
+// Refactored existing formulas
+const valueStraightFromInput = (takenInputValue: number): number => {
+  return takenInputValue;
+};
 const calculateExpectedAmountSIP = (
   monthlyInvestment: number,
   annualReturns: number,
@@ -82,71 +143,39 @@ const calculateExpectedAmountSIP = (
   const monthlyRate = annualReturns / 12 / 100;
   const months = investmentPeriod * 12;
 
-  const expectedAmount =
+  return (
     monthlyInvestment *
     (((1 + monthlyRate) ** months - 1) / monthlyRate) *
-    (1 + monthlyRate);
-
-  return expectedAmount;
+    (1 + monthlyRate)
+  );
 };
+
 const calculateInvestedSIP = (
   monthlyInvestment: number,
   investmentPeriod: number
 ): number => {
   const months = investmentPeriod * 12;
-
-  const amountInvested = monthlyInvestment * months;
-
-  return amountInvested;
+  return monthlyInvestment * months;
 };
-const calculateWelthgainSIP = (
+
+const calculateWealthGainSIP = (
   monthlyInvestment: number,
   annualReturns: number,
   investmentPeriod: number
 ): number => {
-  const monthlyRate = annualReturns / 12 / 100;
-  const months = investmentPeriod * 12;
-
-  const expectedAmount =
-    monthlyInvestment *
-    (((1 + monthlyRate) ** months - 1) / monthlyRate) *
-    (1 + monthlyRate);
-  const amountInvested = monthlyInvestment * months;
-  const wealthGain = expectedAmount - amountInvested;
-
-  return wealthGain;
-};
-
-const calculateLoan = (
-  loanAmount: number,
-  annualInterestRate: number,
-  loanTenureYears: number
-) => {
-  const monthlyRate = annualInterestRate / 12 / 100;
-  const numberOfMonths = loanTenureYears * 12;
-
-  const monthlyPayment =
-    (loanAmount * monthlyRate) / (1 - (1 + monthlyRate) ** -numberOfMonths);
-  return monthlyPayment;
-};
-
-const calculateLoanTotalPayment = (
-  loanAmount: number,
-  annualInterestRate: number,
-  loanTenureYears: number
-) => {
-  const monthlyPayment = calculateLoan(
-    loanAmount,
-    annualInterestRate,
-    loanTenureYears
+  const expectedAmount = calculateExpectedAmountSIP(
+    monthlyInvestment,
+    annualReturns,
+    investmentPeriod
   );
-  const numberOfMonths = loanTenureYears * 12;
-
-  const totalPayment = monthlyPayment * numberOfMonths;
-  return totalPayment;
+  const investedAmount = calculateInvestedSIP(
+    monthlyInvestment,
+    investmentPeriod
+  );
+  return expectedAmount - investedAmount;
 };
 
-const calculateMonthlyEMI = (
+const calculateLoanEMI = (
   loanAmount: number,
   annualInterestRate: number,
   loanTenureYears: number
@@ -154,17 +183,26 @@ const calculateMonthlyEMI = (
   const monthlyInterestRate = annualInterestRate / 12 / 100;
   const numberOfMonths = loanTenureYears * 12;
 
-  const emi =
+  return (
     (loanAmount *
       monthlyInterestRate *
       (1 + monthlyInterestRate) ** numberOfMonths) /
-    ((1 + monthlyInterestRate) ** numberOfMonths - 1);
-
-  return emi;
+    ((1 + monthlyInterestRate) ** numberOfMonths - 1)
+  );
 };
 
-const calculatePrincipalAmount = (loanAmount: number): number => {
-  return loanAmount;
+const calculateLoanTotalPayment = (
+  loanAmount: number,
+  annualInterestRate: number,
+  loanTenureYears: number
+): number => {
+  const monthlyEMI = calculateLoanEMI(
+    loanAmount,
+    annualInterestRate,
+    loanTenureYears
+  );
+  const numberOfMonths = loanTenureYears * 12;
+  return monthlyEMI * numberOfMonths;
 };
 
 const calculateTotalInterest = (
@@ -172,32 +210,86 @@ const calculateTotalInterest = (
   annualInterestRate: number,
   loanTenureYears: number
 ): number => {
-  const monthlyEMI = calculateMonthlyEMI(
+  const totalPayment = calculateLoanTotalPayment(
     loanAmount,
     annualInterestRate,
     loanTenureYears
   );
-  const numberOfMonths = loanTenureYears * 12;
-
-  const totalAmountPayable = monthlyEMI * numberOfMonths;
-  const totalInterest = totalAmountPayable - loanAmount;
-
-  return totalInterest;
+  return totalPayment - loanAmount;
 };
+
+const calculatePrincipalAmount = valueStraightFromInput;
 
 const calculateTotalAmount = (
   loanAmount: number,
   annualInterestRate: number,
   loanTenureYears: number
 ): number => {
-  const monthlyEMI = calculateMonthlyEMI(
+  return calculateLoanTotalPayment(
     loanAmount,
     annualInterestRate,
     loanTenureYears
   );
-  const numberOfMonths = loanTenureYears * 12;
-
-  const totalAmountPayable = monthlyEMI * numberOfMonths;
-
-  return totalAmountPayable;
 };
+const calculateTotalWithdrawalSWP = (
+  withdrawalPerMonth: number,
+  timePeriodYears: number
+): number => {
+  const months = timePeriodYears * 12;
+  return withdrawalPerMonth * months;
+};
+
+const calculateFinalValueSWP = (
+  totalInvestment: number,
+  withdrawalPerMonth: number,
+  expectedReturnRate: number,
+  timePeriodYears: number
+): number => {
+  const n = 12; // Compounds per year (monthly)
+  const r = expectedReturnRate / 100; // Annual interest rate as a decimal
+  const t = timePeriodYears; // Time period in years
+
+  const monthlyRate = r / n;
+  const totalMonths = n * t;
+
+  // The modified formula
+  const futureValueOfWithdrawals = withdrawalPerMonth * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
+
+  const futureValueOfInvestment = totalInvestment * Math.pow(1 + monthlyRate, totalMonths);
+
+  
+  const finalValue = futureValueOfInvestment - futureValueOfWithdrawals;
+
+  return finalValue;
+};
+
+const calculateInvestedAmountLumpsum = (totalInvestment: number): number => {
+  return totalInvestment;
+};
+
+const calculateEstimatedReturnsLumpsum = (
+  totalInvestment: number,
+  expectedReturnRate: number,
+  timePeriodYears: number
+): number => {
+  const rate = expectedReturnRate / 100;
+  const totalValue = totalInvestment * (1 + rate) ** timePeriodYears;
+  return totalValue - totalInvestment;
+};
+
+const calculateTotalValueLumpsum = (
+  totalInvestment: number,
+  expectedReturnRate: number,
+  timePeriodYears: number
+): number => {
+  const rate = expectedReturnRate / 100;
+  return totalInvestment * (1 + rate) ** timePeriodYears;
+};
+
+// Car Loan EMI Calculator formulas can reuse the loan formulas
+// Assuming the loan formulas from earlier are defined as follows:
+
+const calculateCarLoanEMI = calculateLoanEMI;
+const calculateCarLoanTotalPayment = calculateLoanTotalPayment;
+const calculateCarLoanTotalInterest = calculateTotalInterest;
+const calculateCarLoanPrincipalAmount = calculatePrincipalAmount;

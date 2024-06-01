@@ -1,103 +1,147 @@
 {
-    "calculator_type": "CALCULATOR_LUMPSUM",
-    "template_type": "TEXT_SLIDER_PIE",
-    "page_title": "LUMPSUM Calculate Online",
-    "header": "Lumpsum Calculator",
-    "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
-    "inputs": [
-      {
-        "id": "monthly_investment_lumpsum",
-        "title": "Monthly investment",
-        "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
-        "text_box": {
-          "is_visible": true,
-          "placeholder_value": 4000,
-          "is_commas_enabled": true,
-          "starting_text": "₹",
-          "input_type": "number"
-        },
-        "slider": {
-          "is_visible": true,
-          "min": 500,
-          "minLabel": "500",
-          "max": 5000000,
-          "maxLabel": "10L",
-          "step": 1000
-        }
+  "calculator_type": "CALCULATOR_LUMPSUM",
+  "template_type": "TEXT_SLIDER_PIE",
+  "page_title": "Lumpsum Calculator",
+  "header": "Lumpsum Calculator",
+  "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
+  "inputs": [
+    {
+      "id": "total_investment_lumpsum",
+      "title": "Total investment",
+      "description": "",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 25000,
+        "is_commas_enabled": true,
+        "prefix": "₹",
+        "suffix": "",
+        "input_type": "number"
       },
-      {
-        "id": "expected_amount_lumpsum",
-        "title": "Expected return rate (p.a)",
-        "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
-        "text_box": {
-          "is_visible": true,
-          "placeholder_value": 4.4,
-          "is_commas_enabled": true,
-          "starting_text": "₹",
-          "input_type": "number"
-        },
-        "slider": {
-          "is_visible": true,
-          "min": 1,
-          "minLablel": "1%",
-          "max": 30,
-          "maxLabel": "40%",
-          "step": 0.1
-        }
-      },
-      {
-        "id": "time_period_lumpsum",
-        "title": "Time Period",
-        "description": "something shitt yksj dbfjbfsjdb fksdhbkj f hvjfhv dh bkj",
-        "text_box": {
-          "is_visible": true,
-          "placeholder_value": 4,
-          "is_commas_enabled": false,
-          "starting_text": "",
-          "input_type": "number"
-        },
-        "slider": {
-          "is_visible": true,
-          "min": 1,
-          "minLabel": "1Yr",
-          "max": 40,
-          "maxLabel": "44Yr",
-          "step": 1
-        }
+      "slider": {
+        "is_visible": true,
+        "min": 500,
+        "minLabel": "500",
+        "max": 10000000,
+        "maxLabel": "1Cr",
+        "step": 500
       }
-    ],
-    "outputs": [
+    },
+    {
+      "id": "expected_return_rate_lumpsum",
+      "title": "Expected return rate (p.a)",
+      "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 12,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "%",
+        "input_type": "number"
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1%",
+        "max": 30,
+        "maxLabel": "30%",
+        "step": 0.1
+      }
+    },
+    {
+      "id": "time_period_lumpsum",
+      "title": "Time Period",
+      "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 10,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "Yr",
+        "input_type": "number"
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1Yr",
+        "max": 40,
+        "maxLabel": "40Yr",
+        "step": 1
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "invested_amount_lumpsum",
+      "title": "Invested Amount",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "INVESTED_AMOUNT_LUMPSUM",
+        "parameters": [
+          "total_investment_lumpsum"
+        ]
+      }
+    },
+    {
+      "id": "estimated_returns_lumpsum",
+      "title": "Est. returns",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "ESTIMATED_RETURNS_LUMPSUM",
+        "parameters": [
+          "total_investment_lumpsum",
+          "expected_return_rate_lumpsum",
+          "time_period_lumpsum"
+        ]
+      }
+    },
+    {
+      "id": "total_lumpsum",
+      "title": "Total value",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "TOTAL_VALUE_LUMPSUM",
+        "parameters": [
+          "total_investment_lumpsum",
+          "expected_return_rate_lumpsum",
+          "time_period_lumpsum"
+        ]
+      }
+    }
+  ],
+  "pie": {
+    "visible": true,
+    "labels": [
       {
-        "id": "expected_amount_lumpsum",
-        "title": "Expected Amount",
-        "front_character": "₹",
-        "back_character": "",
-        "formula": {
-          "formulaName": "calculateExpectedAmount",
-          "parameters": []
-        }
+        "id": "invested_amount_lumpsum",
+        "label": "Invested Amount",
+        "colour": "rgba(77, 100, 141, 1)"
       },
       {
-        "id": "amount_invested_lumpsum",
-        "title": "Amount Invested",
-        "front_character": "₹",
-        "back_character": "",
-        "formula": {
-          "formulaName": "calculateAmountInvested",
-          "parameters": []
-        }
-      },
-      {
-        "id": "wealth_gain_lumpsum",
-        "title": "Wealth Gain",
-        "front_character": "₹",
-        "back_character": "",
-        "formula": {
-          "formulaName": "calculateWealthGain",
-          "parameters": []
-        }
+        "id": "estimated_returns_lumpsum",
+        "label": "Est. returns",
+        "colour": "rgba(30, 31, 38, 1)"
       }
     ]
-  
+  },
+  "description": "",
+  "faqs": {
+    "header": "FAQs",
+    "items": [
+      {
+        "question": "What is the difference between lumpsum and SIP?",
+        "answer": "A lumpsum investment refers to a one-time investment in a particular scheme for a specific duration. SIP is a more systematic approach wherein a smaller amount is invested in a plan every month."
+      },
+      {
+        "question": "Which is more advantageous- lumpsum or SIP?",
+        "answer": "Both these investment instruments have their share of pros and cons. A lumpsum investment frees an investor from the hassles of keeping track of the amount to be invested every month along with the changing NAV, but it may prove to be a significant financial burden initially. SIP does not stress the finances of an investor but requires more involvement on his/her part. "
+      },
+      {
+        "question": "Are mutual fund calculators accurate?",
+        "answer": "As accurate as it can be; you must understand that a certain amount of risk is inherent in MF investments because of volatile market forces."
+      }
+    ]
   }
-  
+}

@@ -1,0 +1,169 @@
+{
+    "calculator_type": "CALCULATOR_SWP",
+    "template_type": "TEXT_SLIDER_PIE",
+    "page_title": "Car Loan EMI Calculator",
+    "header": "Car Loan EMI Calculator",
+    "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
+    "inputs": [
+      {
+        "id": "loan_amount_car_emi",
+        "title": "Loan amount",
+        "description": "",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 1000000,
+          "is_commas_enabled": true,
+          "prefix": "₹",
+          "suffix": "",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 100000,
+          "minLabel": "1L",
+          "max": 10000000,
+          "maxLabel": "1Cr",
+          "step": 50000
+        }
+      },
+      {
+        "id": "intrest_rate_car_emi",
+        "title": "Rate of intrest(p.a)",
+        "description": "",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 10000,
+          "is_commas_enabled": true,
+          "prefix": "",
+          "suffix": "%",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 1,
+          "minLabel": "1%",
+          "max": 30,
+          "maxLabel": "30%",
+          "step": 0.1
+        }
+      },
+      {
+        "id": "loan_tenure_car_emi",
+        "title": "Loan tenure",
+        "description": "",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 5,
+          "is_commas_enabled": false,
+          "prefix": "",
+          "suffix": "Yr",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 1,
+          "minLabel": "1Yr",
+          "max": 30,
+          "maxLabel": "30Yr",
+          "step": 1
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "monthly_car_emi",
+        "title": "Monthly EMI",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "CAR_LOAN_EMI",
+          "parameters": [
+            "loan_amount_car_emi",
+            "intrest_rate_car_emi",
+            "loan_tenure_car_emi"
+          ]
+        }
+      },
+      {
+        "id": "principal_amount_car_emi",
+        "title": "Principal amount",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "CAR_LOAN_PRINCIPAL_AMOUNT",
+          "parameters": [
+            "loan_amount_car_emi"
+          ]
+        }
+      },
+      {
+        "id": "total_intrest_car_emi",
+        "title": "Total intrest",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "CAR_LOAN_TOTAL_INTEREST",
+          "parameters": [
+            "loan_amount_car_emi",
+            "intrest_rate_car_emi",
+            "loan_tenure_car_emi"
+          ]
+        }
+      },
+      {
+        "id": "total_amount_car_emi",
+        "title": "Total amount",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "CAR_LOAN_TOTAL_PAYMENT",
+          "parameters": [
+            "loan_amount_car_emi",
+            "intrest_rate_car_emi",
+            "loan_tenure_car_emi"
+          ]
+        }
+      }
+    ],
+    "pie": {
+      "visible": false,
+      "labels": [
+        {
+          "id": "principal_amount_car_emi",
+          "label": "Principal amount",
+          "colour": "rgba(77, 100, 141, 1)"
+        },
+        {
+          "id": "total_intrest_car_emi",
+          "label": "Intrest amount",
+          "colour": "rgba(30, 31, 38, 1)"
+        }
+      ]
+    },
+    "description": "",
+    "faqs": {
+      "header": "FAQs",
+      "items": [
+        {
+          "question": "How much time does it take to use the calculator?",
+          "answer": "If you have the details with you (total amount, interest levied and tenure), it takes only a few minutes."
+        },
+        {
+          "question": "Can I avail myself a car loan to buy a used vehicle?",
+          "answer": "Yes, almost all major financial institutions provide loans for used vehicles. Also, the calculator provided on this page can act like a used car loan EMI calculator to determine the EMIs. However, ensure that the used model comes with the necessary documentation."
+        },
+        {
+          "question": "Can my car loan application be rejected?",
+          "answer": "On occasion, your car loan application may be rejected if you do not fulfill the minimum eligibility criteria or if there is a mistake in your documentation. Besides, your CIBIL score has to be 750 or more at all times."
+        },
+        {
+          "question": "Do I need a co-guarantor for a car loan?",
+          "answer": "It is not mandatory to have a co-guarantor. However, if you do not meet the eligibility criteria on your own, you may need one."
+        },
+        {
+          "question": "What is the typical tenure of a car loan in India?",
+          "answer": "In India, most car loans run for 1 to 5 years, although certain new plans to run for up to 7 years. The lower the tenure, the higher the EMIs you need to pay."
+        }
+      ]
+    }
+  }

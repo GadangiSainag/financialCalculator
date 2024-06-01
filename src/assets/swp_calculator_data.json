@@ -1,0 +1,168 @@
+{
+    "calculator_type": "CALCULATOR_SWP",
+    "template_type": "TEXT_SLIDER",
+    "page_title": "SWP (Systematic Withdrawal Plan) Calculator",
+    "header": "SWP (Systematic Withdrawal Plan) Calculator",
+    "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
+    "inputs": [
+      {
+        "id": "total_investment_swp",
+        "title": "Total investment",
+        "description": "",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 500000,
+          "is_commas_enabled": true,
+          "prefix": "₹",
+          "suffix": "",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 10000,
+          "minLabel": "10T",
+          "max": 5000000,
+          "maxLabel": "50L",
+          "step": 10000
+        }
+      },
+      {
+        "id": "withdrawal_swp",
+        "title": "Withdrawal per month",
+        "description": "",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 10000,
+          "is_commas_enabled": true,
+          "prefix": "₹",
+          "suffix": "",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 500,
+          "minLabel": "500",
+          "max": 50000,
+          "maxLabel": "50T",
+          "step": 500
+        }
+      },
+      {
+        "id": "expected_return_rate_swp",
+        "title": "Expected return rate (p.a)",
+        "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 8,
+          "is_commas_enabled": false,
+          "prefix": "",
+          "suffix": "%",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 1,
+          "minLabel": "1%",
+          "max": 30,
+          "maxLabel": "30%",
+          "step": 0.1
+        }
+      },
+      {
+        "id": "time_period_swp",
+        "title": "Time Period",
+        "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+        "text_box": {
+          "is_visible": true,
+          "placeholder_value": 8,
+          "is_commas_enabled": false,
+          "prefix": "",
+          "suffix": "Yr",
+          "input_type": "number"
+        },
+        "slider": {
+          "is_visible": true,
+          "min": 1,
+          "minLabel": "1Yr",
+          "max": 30,
+          "maxLabel": "30Yr",
+          "step": 1
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "id": "total_investment_swp",
+        "title": "Total investment",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "TOTAL_INVESTMENT_SWP",
+          "parameters": [
+            "total_investment_swp"
+          ]
+        }
+      },
+      {
+        "id": "total_withdrawal_swp",
+        "title": "Total withdrawal",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "TOTAL_WITHDRAWAL_SWP",
+          "parameters": [
+            "withdrawal_swp",
+            "time_period_swp"
+          ]
+        }
+      },
+      {
+        "id": "final_value_swp",
+        "title": "Final value",
+        "front_character": "₹",
+        "back_character": "",
+        "formula": {
+          "formulaName": "FINAL_VALUE_SWP",
+          "parameters": [
+            "total_investment_swp",
+            "withdrawal_swp",
+            "expected_return_rate_swp",
+            "time_period_swp"
+          ]
+        }
+      }
+    ],
+    "pie": {
+      "visible": false,
+      "labels": [
+        {
+          "id": "",
+          "label": "",
+          "colour": ""
+        },
+        {
+          "id": "",
+          "label": "",
+          "colour": ""
+        }
+      ]
+    },
+    "description": "",
+    "faqs": {
+      "header": "FAQs",
+      "items": [
+        {
+          "question": "Can I choose the withdrawal amount or is it fixed?",
+          "answer": "No, you can determine the monthly withdrawal amount as per requirements. You have to just choose between annual fixed amount and quarterly withdrawals. "
+        },
+        {
+          "question": "When to use SWP?",
+          "answer": "As per experts, SWP works best after retirement because an individual needs income."
+        },
+        {
+          "question": "Can individuals who are not retirees invest in an SWP?",
+          "answer": "No, SWP investments are not limited only for retirees or senior citizens."
+        }
+      ]
+    }
+  }
