@@ -83,7 +83,7 @@ const CalculatorPage: React.FC = () => {
   return (
     <div>
       <div className={classes.card}>
-        <header>{calculatorData.header}</header>
+        <header className={classes.header}>{calculatorData.header}</header>
         <div className={classes.container}>
           <div className={classes.inputs}>
             {calculatorData.inputs &&
@@ -97,12 +97,13 @@ const CalculatorPage: React.FC = () => {
           </div>
           <div className={classes.output}>
             <div style={{ margin: "60px auto" }}>
-              {<PieChart pieData={outputs} pieInfo={calculatorData.pie} />}
+              {calculatorData.pie.visible && <PieChart pieData={outputs} pieInfo={calculatorData.pie} />}
             </div>
             {outputs && (
               <TextAreaOutput
                 outputInfo={calculatorData.outputs}
                 outputValues={outputs}
+                pieInfo={calculatorData.pie}
               />
             )}
           </div>

@@ -17,6 +17,7 @@ const PieChart = (props: Props) => {
     (eachLabel) => eachLabel.colour
   );
 // labels.reverse();
+legendColours.reverse()
   const data = {
     datasets: [
       {

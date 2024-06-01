@@ -136,3 +136,63 @@ input[type='number']:active {
 .inputComp {
   grid-area: 3 / 1 / 4 / 3;
 }
+.errorTextBox{
+  /* background-color: #EF5350; */
+  border: 2px solid #EF5350;
+}
+
+
+.errorContainer {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.errorIcon {
+  color: red;
+  background-color: #fff;
+  border: 1px solid red;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  position: relative;
+}
+
+.errorTooltip {
+  visibility: hidden;
+  width: 200px;
+  background-color: red;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above the icon */
+  left: 50%;
+  margin-left: -100px; /* Center the tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.errorTooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+}
+
+.errorIcon:hover .errorTooltip {
+  visibility: visible;
+  opacity: 1;
+}
