@@ -113,13 +113,13 @@
     "visible": true,
     "labels": [
       {
-        "id": "amount_invested_sip",
-        "label": "Amount Invested",
+        "id": "expected_amount_sip",
+        "label": "Expected Amount",
         "colour": "rgba(77, 100, 141, 1)"
       },
       {
-        "id": "expected_amount_sip",
-        "label": "Expected Amount",
+        "id": "amount_invested_sip",
+        "label": "Amount Invested",
         "colour": "rgba(30, 31, 38, 1)"
       }
     ]

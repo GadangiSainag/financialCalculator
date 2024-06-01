@@ -39,11 +39,12 @@ export default function InputField(props: Props) {
     props.onChange(props.input.id, newValue);
     //dispatch(updateInputValue({ id: props.input.id, value: newValue }));
   };
-  const handleWheel = (e: { target: { blur: () => void; focus: () => void; }; stopPropagation: () => void; }) => {
-    e.target.blur();
+  const handleWheel = (e: React.WheelEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+    target.blur();
     e.stopPropagation();
     setTimeout(() => {
-      e.target.focus();
+      target.focus();
     }, 0);
   };
   const selectInput = makeSelectInputById();
