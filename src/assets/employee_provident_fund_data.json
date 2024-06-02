@@ -94,8 +94,8 @@
       }
     },
     {
-      "id": "intrest_rate_epf",
-      "title": "Rate of intrest",
+      "id": "interest_rate_epf",
+      "title": "Rate of interest",
       "description": "",
       "text_box": {
         "is_visible": true,
@@ -129,7 +129,7 @@
           "current_age_epf",
           "contribution_to_epf",
           "salary_increase_epf",
-          "intrest_rate_epf"
+          "interest_rate_epf"
         ]
       }
     }

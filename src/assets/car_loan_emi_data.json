@@ -28,8 +28,8 @@
         }
       },
       {
-        "id": "intrest_rate_car_emi",
-        "title": "Rate of intrest(p.a)",
+        "id": "interest_rate_car_emi",
+        "title": "Rate of interest(p.a)",
         "description": "",
         "text_box": {
           "is_visible": true,
@@ -82,7 +82,7 @@
           "formulaName": "CAR_LOAN_EMI",
           "parameters": [
             "loan_amount_car_emi",
-            "intrest_rate_car_emi",
+            "interest_rate_car_emi",
             "loan_tenure_car_emi"
           ]
         }
@@ -100,15 +100,15 @@
         }
       },
       {
-        "id": "total_intrest_car_emi",
-        "title": "Total intrest",
+        "id": "total_interest_car_emi",
+        "title": "Total interest",
         "front_character": "₹",
         "back_character": "",
         "formula": {
           "formulaName": "CAR_LOAN_TOTAL_INTEREST",
           "parameters": [
             "loan_amount_car_emi",
-            "intrest_rate_car_emi",
+            "interest_rate_car_emi",
             "loan_tenure_car_emi"
           ]
         }
@@ -122,7 +122,7 @@
           "formulaName": "CAR_LOAN_TOTAL_PAYMENT",
           "parameters": [
             "loan_amount_car_emi",
-            "intrest_rate_car_emi",
+            "interest_rate_car_emi",
             "loan_tenure_car_emi"
           ]
         }
@@ -137,8 +137,8 @@
           "colour": "rgba(77, 100, 141, 1)"
         },
         {
-          "id": "total_intrest_car_emi",
-          "label": "Intrest amount",
+          "id": "total_interest_car_emi",
+          "label": "Interest amount",
           "colour": "rgba(30, 31, 38, 1)"
         }
       ]

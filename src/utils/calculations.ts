@@ -139,7 +139,7 @@ export const calculateOutputs = (
       case "PRINCIPAL_SI":
         calculatedValue = calculatePrincipalAmountSI(...(values as [number]));
         break;
-      case "TOTAL_INTREST_SI":
+      case "TOTAL_INTEREST_SI":
         calculatedValue = calculateTotalInterestSI(
           ...(values as [number, number, number])
         );
@@ -155,7 +155,7 @@ export const calculateOutputs = (
           ...(values as [number, number, number, number])
         );
         break;
-      case "TOTAL_INTREST_CI":
+      case "TOTAL_INTEREST_CI":
         calculatedValue = calculateTotalInterestCI(
           ...(values as [number, number, number, number])
         );

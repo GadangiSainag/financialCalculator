@@ -1,8 +1,8 @@
 {
   "calculator_type": "CALCULATOR_SI",
   "template_type": "TEXT_SLIDER_PIE",
-  "page_title": "Simple Intrest Calculator - Calculate Simple Intrest Online",
-  "header": "Simple Intrest Calculator",
+  "page_title": "Simple Interest Calculator - Calculate Simple Interest Online",
+  "header": "Simple Interest Calculator",
   "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
   "inputs": [
     {
@@ -28,8 +28,8 @@
       }
     },
     {
-      "id": "intrest_rate_si",
-      "title": "Rate of intrest (p.a)",
+      "id": "interest_rate_si",
+      "title": "Rate of interest (p.a)",
       "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
       "text_box": {
         "is_visible": true,
@@ -84,15 +84,15 @@
       }
     },
     {
-      "id": "intrest_si",
-      "title": "Total intrest",
+      "id": "interest_si",
+      "title": "Total interest",
       "front_character": "₹",
       "back_character": "",
       "formula": {
-        "formulaName": "TOTAL_INTREST_SI",
+        "formulaName": "TOTAL_INTEREST_SI",
         "parameters": [
           "principal_amount_si",
-          "intrest_rate_si",
+          "interest_rate_si",
           "time_period_si"
         ]
       }
@@ -106,7 +106,7 @@
         "formulaName": "TOTAL_VALUE_SI",
         "parameters": [
           "principal_amount_si",
-          "intrest_rate_si",
+          "interest_rate_si",
           "time_period_si"
         ]
       }
@@ -121,8 +121,8 @@
         "colour": "rgba(77, 100, 141, 1)"
       },
       {
-        "id": "intrest_si",
-        "label": "Total intrest",
+        "id": "interest_si",
+        "label": "Total interest",
         "colour": "rgba(30, 31, 38, 1)"
       }
     ]

@@ -1,8 +1,8 @@
 {
   "calculator_type": "CALCULATOR_CI",
   "template_type": "TEXT_SLIDER_DROPDOWN_PIE",
-  "page_title": "Coumpound Intrest Calculator Online",
-  "header": "Coumpound Intrest Calculator",
+  "page_title": "Coumpound Interest Calculator Online",
+  "header": "Coumpound Interest Calculator",
   "input_template_type": "TEXT_SLIDER__DROPDOWN_INPUT_VIEW",
   "inputs": [
     {
@@ -28,8 +28,8 @@
       }
     },
     {
-      "id": "intrest_rate_ci",
-      "title": "Rate of intrest (p.a)",
+      "id": "interest_rate_ci",
+      "title": "Rate of interest (p.a)",
       "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
       "text_box": {
         "is_visible": true,
@@ -127,15 +127,15 @@
       }
     },
     {
-      "id": "intrest_ci",
-      "title": "Total intrest",
+      "id": "interest_ci",
+      "title": "Total interest",
       "front_character": "₹",
       "back_character": "",
       "formula": {
-        "formulaName": "TOTAL_INTREST_CI",
+        "formulaName": "TOTAL_INTEREST_CI",
         "parameters": [
           "principal_amount_ci",
-          "intrest_rate_ci",
+          "interest_rate_ci",
           "time_period_ci",
           "frequency_ci"
         ]
@@ -150,7 +150,7 @@
         "formulaName": "TOTAL_VALUE_CI",
         "parameters": [
           "principal_amount_ci",
-          "intrest_rate_ci",
+          "interest_rate_ci",
           "time_period_ci",
           "frequency_ci"
         ]
@@ -166,8 +166,8 @@
         "colour": "rgba(77, 100, 141, 1)"
       },
       {
-        "id": "intrest_ci",
-        "label": "Total intrest",
+        "id": "interest_ci",
+        "label": "Total interest",
         "colour": "rgba(30, 31, 38, 1)"
       }
     ]
