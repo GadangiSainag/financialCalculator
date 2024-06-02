@@ -4,7 +4,7 @@ import { sliderInputComponent } from "../../utils/types";
 import makeSelectInputById from "../../utils/selectInputByID";
 import classes from "./InputField.module.css";
 import { useSelector } from "react-redux";
-
+import CustomDropdown from "./CustomDropdown";
 interface Props {
   input: sliderInputComponent["input"];
   onChange: (id: string, value: number) => void;
@@ -12,7 +12,7 @@ interface Props {
 
 export default function InputField(props: Props) {
   const [, setError] = useState<string | null>(null);
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleNumChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let newValue = Number(event.target.value);
     if (isNaN(newValue)) {
       newValue = props.input.slider.min;
@@ -38,6 +38,9 @@ export default function InputField(props: Props) {
 
     props.onChange(props.input.id, newValue);
     //dispatch(updateInputValue({ id: props.input.id, value: newValue }));
+  };
+  const handleDropdownChange = (optionValue:number) => {
+    props.onChange(props.input.id, optionValue);
   };
   const handleWheel = (e: React.WheelEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
@@ -67,7 +70,7 @@ export default function InputField(props: Props) {
               step={props.input.slider.step}
               width="250px"
               value={liveObj?.value ?? props.input.text_box.placeholder_value}
-              onChange={handleChange}
+              onChange={handleNumChange}
             />
 
             <div className={classes.constants}>
@@ -77,7 +80,7 @@ export default function InputField(props: Props) {
           </div>
         )}
 
-        {props.input.text_box.is_visible && (
+        {props.input.text_box.input_type === "number" && (
           <div
             className={classes.outerNumerical}
             id={`parent_${props.input.id}`}
@@ -90,14 +93,26 @@ export default function InputField(props: Props) {
               type={"number"}
               value={liveObj?.value ?? props.input.text_box.placeholder_value}
               step={props.input.slider.step}
-              onChange={handleChange}
+              onChange={handleNumChange}
               onWheel={handleWheel}
               min={props.input.slider.min}
-              readOnly ={props.input.text_box.read_only}
+              readOnly={props.input.text_box.read_only}
             />
             <span className={classes.suffix}>
               {props.input.text_box.suffix}
             </span>
+          </div>
+        )}
+        {props.input.text_box.input_type === "dropdown" && (
+          <div
+            className={classes.outerNumerical}
+            id={`parent_${props.input.id}`}
+          >
+            <CustomDropdown
+              data={props.input.text_box.dropdown}
+              onOptionChange={handleDropdownChange}
+            />
+            <span className={classes.suffix}>{/* Svg arrow down */}</span>
           </div>
         )}
       </div>

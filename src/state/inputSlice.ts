@@ -15,7 +15,7 @@ const inputSlice = createSlice({
       action.payload.forEach((input) => {
         state.data.push({
           id: input.id,
-          value: input.text_box.placeholder_value,
+          value: input.text_box.placeholder_value ?? input.text_box.dropdown.options.find((each) => each.id === input.text_box.dropdown.initial_option_id)?.value,
         });
       });
     },

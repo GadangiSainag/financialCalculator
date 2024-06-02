@@ -1,0 +1,193 @@
+{
+  "calculator_type": "CALCULATOR_CI",
+  "template_type": "TEXT_SLIDER_DROPDOWN_PIE",
+  "page_title": "Coumpound Intrest Calculator Online",
+  "header": "Coumpound Intrest Calculator",
+  "input_template_type": "TEXT_SLIDER__DROPDOWN_INPUT_VIEW",
+  "inputs": [
+    {
+      "id": "principal_amount_ci",
+      "title": "principal amount",
+      "description": "",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 100000,
+        "is_commas_enabled": true,
+        "prefix": "₹",
+        "suffix": "",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1000,
+        "minLabel": "500",
+        "max": 10000000,
+        "maxLabel": "1Cr",
+        "step": 1000
+      }
+    },
+    {
+      "id": "intrest_rate_ci",
+      "title": "Rate of intrest (p.a)",
+      "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 6,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "%",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1%",
+        "max": 50,
+        "maxLabel": "50%",
+        "step": 0.1
+      }
+    },
+    {
+      "id": "time_period_ci",
+      "title": "Time Period",
+      "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 5,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "Yr",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1Yr",
+        "max": 30,
+        "maxLabel": "30Yr",
+        "step": 1
+      }
+    },
+    {
+      "id": "frequency_ci",
+      "title": "Coumpounding frequency",
+      "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": null,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "Yr",
+        "input_type": "dropdown",
+        "read_only": false,
+        "dropdown": {
+          "is_visible": true,
+          "initial_option_id": "yearly_option_ci",
+          "options": [
+            {
+              "id": "yearly_option_ci",
+              "option_label": "Yearly",
+              "value": 1
+            },
+            {
+              "id": "half_yearly_option_ci",
+              "option_label": "Half Yearly",
+              "value": 2
+            },
+            {
+              "id": "querterly_option_ci",
+              "option_label": "Quarterly",
+              "value": 4
+            }
+          ]
+        }
+      },
+      "slider": {
+        "is_visible": false,
+        "min": "",
+        "minLabel": "",
+        "max": "",
+        "maxLabel": "",
+        "step": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "principal_amount_ci",
+      "title": "Principal amount",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "PRINCIPAL_CI",
+        "parameters": ["principal_amount_ci"]
+      }
+    },
+    {
+      "id": "intrest_ci",
+      "title": "Total intrest",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "TOTAL_INTREST_CI",
+        "parameters": [
+          "principal_amount_ci",
+          "intrest_rate_ci",
+          "time_period_ci",
+          "frequency_ci"
+        ]
+      }
+    },
+    {
+      "id": "total_amount_ci",
+      "title": "Total amount",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "TOTAL_VALUE_CI",
+        "parameters": [
+          "principal_amount_ci",
+          "intrest_rate_ci",
+          "time_period_ci",
+          "frequency_ci"
+        ]
+      }
+    }
+  ],
+  "pie": {
+    "visible": true,
+    "labels": [
+      {
+        "id": "principal_amount_ci",
+        "label": "Principal amount",
+        "colour": "rgba(77, 100, 141, 1)"
+      },
+      {
+        "id": "intrest_ci",
+        "label": "Total intrest",
+        "colour": "rgba(30, 31, 38, 1)"
+      }
+    ]
+  },
+  "description": "",
+  "faqs": {
+    "header": "FAQs",
+    "items": [
+      {
+        "question": "Can I calculate my returns on National Savings Certificates too?",
+        "answer": "You can use the online compound interest calculator in this instance."
+      },
+      {
+        "question": "How many times can I use the calculator?",
+        "answer": "There is no fixed upper limit on the calculator. You can use it whenever you need it"
+      },
+      {
+        "question": "Is my data secured with this website?",
+        "answer": "This site places great stress on personal data security and sanctity. Our servers are designed to store your data securely."
+      }
+    ]
+  }
+}

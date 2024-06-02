@@ -136,20 +136,32 @@ export const calculateOutputs = (
           ...(values as [number, number, number, number, number])
         );
         break;
-        case "PRINCIPAL_SI":
-        calculatedValue = calculatePrincipalAmountSI(
-          ...(values as [ number])
-        );
+      case "PRINCIPAL_SI":
+        calculatedValue = calculatePrincipalAmountSI(...(values as [number]));
         break;
-        case "TOTAL_INTREST_SI":
+      case "TOTAL_INTREST_SI":
         calculatedValue = calculateTotalInterestSI(
           ...(values as [number, number, number])
         );
         break;
-        case "TOTAL_VALUE_SI":
+      case "TOTAL_VALUE_SI":
         calculatedValue = calculateTotalAmountSI(
           ...(values as [number, number, number])
         );
+        break;
+
+      case "TOTAL_VALUE_CI":
+        calculatedValue = calculateTotalAmountCI(
+          ...(values as [number, number, number, number])
+        );
+        break;
+      case "TOTAL_INTREST_CI":
+        calculatedValue = calculateTotalInterestCI(
+          ...(values as [number, number, number, number])
+        );
+        break;
+      case "PRINCIPAL_CI":
+        calculatedValue = calculatePrincipalAmountCI(...(values as [number]));
         break;
       default:
         throw new Error(`Unknown formula: ${formulaName}`);
@@ -376,7 +388,7 @@ const calculateEPFAccumulatedAmount = (
 
   return accumulatedAmount;
 };
-const calculatePrincipalAmountSI =valueStraightFromInput;
+const calculatePrincipalAmountSI = valueStraightFromInput;
 
 const calculateTotalInterestSI = (
   principalAmount: number,
@@ -402,3 +414,33 @@ const calculateTotalAmountSI = (
   return totalAmount;
 };
 
+const calculatePrincipalAmountCI = valueStraightFromInput;
+
+const calculateTotalInterestCI = (
+  principalAmount: number,
+  annualInterestRate: number,
+  timePeriodYears: number,
+  compoundingFrequency: number
+): number => {
+  const totalAmount = calculateTotalAmountCI(
+    principalAmount,
+    annualInterestRate,
+    timePeriodYears,
+    compoundingFrequency
+  );
+  const totalInterest = totalAmount - principalAmount;
+  return totalInterest;
+};
+
+const calculateTotalAmountCI = (
+  principalAmount: number,
+  annualInterestRate: number,
+  timePeriodYears: number,
+  compoundingFrequency: number
+): number => {
+  const n = compoundingFrequency;
+  const totalAmount =
+    principalAmount *
+    (1 + annualInterestRate / (100 * n)) ** (n * timePeriodYears);
+  return totalAmount;
+};

@@ -87,6 +87,17 @@
         "path": "simple-intrest-calculator",
         "config_file_name": "simple_intrest_calculator_data"
       }
+    },
+    {
+      "id": "9",
+      "header": "Coumpound Intrest",
+      "sub_text": "Calculate coumpound intrest on your loans and saving schemes investments.",
+      "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
+      "cta": {
+        "calculator_type": "CALCULATOR_CI",
+        "path": "compound-intrest-calculator",
+        "config_file_name": "compound_intrest_calculator_data"
+      }
     }
   ]
 }

@@ -9,6 +9,11 @@ export interface eachCalculatorIntro {
     config_file_name: string;
   };
 }
+export interface dropdownOptionObj {
+  id: string;
+  option_label: string;
+  value: number;
+}
 export interface sliderInputComponent {
   input: {
     id: string;
@@ -18,12 +23,15 @@ export interface sliderInputComponent {
       is_visible: boolean;
       placeholder_value: number;
       is_commas_enabled: boolean;
-      prefix: string,
-      suffix :string,
+      prefix: string;
+      suffix: string;
       input_type: "number" | "dropdown";
-      read_only:boolean;
-      
-
+      read_only: boolean;
+      dropdown: {
+        is_visible: boolean;
+        initial_option_id: string;
+        options: dropdownOptionObj[];
+      };
     };
     slider: {
       is_visible: boolean;
@@ -40,8 +48,8 @@ export interface TextOutputComponent {
   output: {
     id: string;
     title: string;
-    front_character?: string;
-    back_character?: string;
+    front_character: string;
+    back_character: string;
     value?: number;
     formula: {
       formulaName: string;
