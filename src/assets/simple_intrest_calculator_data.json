@@ -1,0 +1,148 @@
+{
+  "calculator_type": "CALCULATOR_SI",
+  "template_type": "TEXT_SLIDER_PIE",
+  "page_title": "Simple Intrest Calculator - Calculate Simple Intrest Online",
+  "header": "Simple Intrest Calculator",
+  "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
+  "inputs": [
+    {
+      "id": "principal_amount_si",
+      "title": "principal amount",
+      "description": "",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 100000,
+        "is_commas_enabled": true,
+        "prefix": "₹",
+        "suffix": "",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1000,
+        "minLabel": "500",
+        "max": 10000000,
+        "maxLabel": "1Cr",
+        "step": 1000
+      }
+    },
+    {
+      "id": "intrest_rate_si",
+      "title": "Rate of intrest (p.a)",
+      "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 6,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "%",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1%",
+        "max": 50,
+        "maxLabel": "50%",
+        "step": 0.1
+      }
+    },
+    {
+      "id": "time_period_si",
+      "title": "Time Period",
+      "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 5,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "Yr",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1Yr",
+        "max": 30,
+        "maxLabel": "30Yr",
+        "step": 1
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "principal_amount_si",
+      "title": "Principal amount",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "PRINCIPAL_SI",
+        "parameters": ["principal_amount_si"]
+      }
+    },
+    {
+      "id": "intrest_si",
+      "title": "Total intrest",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "TOTAL_INTREST_SI",
+        "parameters": [
+          "principal_amount_si",
+          "intrest_rate_si",
+          "time_period_si"
+        ]
+      }
+    },
+    {
+      "id": "total_amount_si",
+      "title": "Total amount",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "TOTAL_VALUE_SI",
+        "parameters": [
+          "principal_amount_si",
+          "intrest_rate_si",
+          "time_period_si"
+        ]
+      }
+    }
+  ],
+  "pie": {
+    "visible": true,
+    "labels": [
+      {
+        "id": "principal_amount_si",
+        "label": "Principal amount",
+        "colour": "rgba(77, 100, 141, 1)"
+      },
+      {
+        "id": "intrest_si",
+        "label": "Total intrest",
+        "colour": "rgba(30, 31, 38, 1)"
+      }
+    ]
+  },
+  "description": "",
+  "faqs": {
+    "header": "FAQs",
+    "items": [
+      {
+        "question": "What can I determine with the help of SI calculators?",
+        "answer": "Users can determine the interest rate on the principal amount as well as total return incurred after completion of tenure."
+      },
+      {
+        "question": "Can I change the unit of the amount to different currencies?",
+        "answer": "Yes, a unique feature of this computing tool is that one can compute values as per different currencies."
+      },
+      {
+        "question": "Do interest rates on principal amount changes over time in SI?",
+        "answer": "No, unlike compound interest on principal amount stays stagnant"
+      }
+    ]
+  }
+}

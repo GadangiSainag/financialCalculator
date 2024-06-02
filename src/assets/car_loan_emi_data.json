@@ -15,7 +15,8 @@
           "is_commas_enabled": true,
           "prefix": "₹",
           "suffix": "",
-          "input_type": "number"
+          "input_type": "number",
+          "read_only": false
         },
         "slider": {
           "is_visible": true,
@@ -32,11 +33,12 @@
         "description": "",
         "text_box": {
           "is_visible": true,
-          "placeholder_value": 10000,
+          "placeholder_value": 12,
           "is_commas_enabled": true,
           "prefix": "",
           "suffix": "%",
-          "input_type": "number"
+          "input_type": "number",
+          "read_only": false
         },
         "slider": {
           "is_visible": true,
@@ -57,7 +59,8 @@
           "is_commas_enabled": false,
           "prefix": "",
           "suffix": "Yr",
-          "input_type": "number"
+          "input_type": "number",
+          "read_only": false
         },
         "slider": {
           "is_visible": true,
@@ -126,7 +129,7 @@
       }
     ],
     "pie": {
-      "visible": false,
+      "visible": true,
       "labels": [
         {
           "id": "principal_amount_car_emi",

@@ -1,0 +1,144 @@
+{
+  "calculator_type": "CALCULATOR_MF",
+  "template_type": "TEXT_SLIDER_PIE",
+  "page_title": "Mutual Fund Return Calculator | Calculate Mutual Funds Online",
+  "header": "Mutual Funds Returns Calculator",
+  "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
+  "inputs": [
+    {
+      "id": "total_investment_mf",
+      "title": "Total investment",
+      "description": "",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 2000,
+        "is_commas_enabled": true,
+        "prefix": "₹",
+        "suffix": "",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 500,
+        "minLabel": "500",
+        "max": 10000000,
+        "maxLabel": "1Cr",
+        "step": 500
+      }
+    },
+    {
+      "id": "expected_return_rate_mf",
+      "title": "Expected return rate (p.a)",
+      "description": "",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 12,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "%",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1%",
+        "max": 50,
+        "maxLabel": "50%",
+        "step": 0.1
+      }
+    },
+    {
+      "id": "time_period_mf",
+      "title": "Time Period",
+      "description": "",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 10,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "Yr",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1,
+        "minLabel": "1Yr",
+        "max": 40,
+        "maxLabel": "40Yr",
+        "step": 1
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "invested_amount_mf",
+      "title": "Invested amount",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "INVESTED_AMOUNT_MF",
+        "parameters": ["total_investment_mf"]
+      }
+    },
+    {
+      "id": "estimated_returns_mf",
+      "title": "Est. returns",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "ESTIMATED_RETURNS_MF",
+        "parameters": [
+          "total_investment_mf",
+          "expected_return_rate_mf",
+          "time_period_mf"
+        ]
+      }
+    },
+    {
+      "id": "total_value_mf",
+      "title": "Total value",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "TOTAL_MF",
+        "parameters": [
+          "total_investment_mf",
+          "expected_return_rate_mf",
+          "time_period_mf"
+        ]
+      }
+    }
+  ],
+  "pie": {
+    "visible": true,
+    "labels": [
+      {
+        "id": "invested_amount_mf",
+        "label": "Invested amount",
+        "colour": "rgba(77, 100, 141, 1)"
+      },
+      {
+        "id": "estimated_returns_mf",
+        "label": "Est. returns",
+        "colour": "rgba(30, 31, 38, 1)"
+      }
+    ]
+  },
+  "description": "",
+  "faqs": {
+    "header": "FAQs",
+    "items": [
+      {
+        "question": "Can there be negative returns on mutual funds?",
+        "answer": "Yes, with mutual funds, there is always a risk of negative returns. However, with some financial planning and expert assistance, such situations are quite easily avoidable. "
+      },
+      {
+        "question": "How many mutual fund schemes are there in India?",
+        "answer": "According to data released by SEBI, there were 1,013 mutual fund schemes in India as of FY18."
+      }
+    ]
+  }
+}

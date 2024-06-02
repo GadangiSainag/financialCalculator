@@ -1,0 +1,174 @@
+{
+  "calculator_type": "CALCULATOR_EPF",
+  "template_type": "TEXT_SLIDER",
+  "page_title": "EPF or Pf Calculator - Employee Provident Fund (EPF) Calculator",
+  "header": "EPF calculator",
+  "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
+  "inputs": [
+    {
+      "id": "monthly_salary_epf",
+      "title": "Monthly salary (Basic + DA)",
+      "description": "",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 50000,
+        "is_commas_enabled": true,
+        "prefix": "₹",
+        "suffix": "",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 1000,
+        "minLabel": "1T",
+        "max": 500000,
+        "maxLabel": "5L",
+        "step": 1000
+      }
+    },
+    {
+      "id": "current_age_epf",
+      "title": "Your age",
+      "description": "",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 28,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "Yr",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 15,
+        "minLabel": "15Yr",
+        "max": 58,
+        "maxLabel": "58Yr",
+        "step": 1
+      }
+    },
+    {
+      "id": "contribution_to_epf",
+      "title": "Your contribution too EPF",
+      "description": "",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 12,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "%",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 12,
+        "minLabel": "12%",
+        "max": 20,
+        "maxLabel": "20%",
+        "step": 1
+      }
+    },
+    {
+      "id": "salary_increase_epf",
+      "title": "Annual increase in salary",
+      "description": "",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 5,
+        "is_commas_enabled": true,
+        "prefix": "",
+        "suffix": "%",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 0,
+        "minLabel": "0%",
+        "max": 15,
+        "maxLabel": "15%",
+        "step": 1
+      }
+    },
+    {
+      "id": "intrest_rate_epf",
+      "title": "Rate of intrest",
+      "description": "",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 8.1,
+        "is_commas_enabled": false,
+        "prefix": "",
+        "suffix": "%",
+        "input_type": "fixed",
+        "read_only": true
+      },
+      "slider": {
+        "is_visible": false,
+        "min": "",
+        "minLabel": "",
+        "max": "",
+        "maxLabel": "",
+        "step": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "amount_at_retirement_epf",
+      "title": "At your retairment you will accumulate",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "TOTAL_EPF",
+        "parameters": [
+          "monthly_salary_epf",
+          "current_age_epf",
+          "contribution_to_epf",
+          "salary_increase_epf",
+          "intrest_rate_epf"
+        ]
+      }
+    }
+  ],
+  "pie": {
+    "visible": false,
+    "labels": [
+      {
+        "id": "",
+        "label": "",
+        "colour": "rgba(77, 100, 141, 1)"
+      },
+      {
+        "id": "",
+        "label": "",
+        "colour": "rgba(30, 31, 38, 1)"
+      }
+    ]
+  },
+  "description": "",
+  "faqs": {
+    "header": "FAQs",
+    "items": [
+      {
+        "question": "Is the EPF calculator free to use?",
+        "answer": "Yes, all of our calculators are free to use."
+      },
+      {
+        "question": "Can I use the same calculator even after I change my job?",
+        "answer": "Even if you shift to a new job, the UAN stays the same. It is fixed and unchangeable. Thus, you can use the same EPF calculator."
+      },
+      {
+        "question": "What happens if the depositor rates- from either my end or my employer’s- changes?",
+        "answer": "In that case, you will need to modify the value you put in when using the EPF calculator."
+      },
+      {
+        "question": "When can I withdraw the money from my EPF account?",
+        "answer": "You can only withdraw the money for personal purposes:\nAfter you have completed 7 years of serviceOnly thrice during the EPF account’s duration.\nNote that you cannot withdraw more than 50% of your personal contribution."
+      }
+    ]
+  }
+}

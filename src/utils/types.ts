@@ -20,7 +20,10 @@ export interface sliderInputComponent {
       is_commas_enabled: boolean;
       prefix: string,
       suffix :string,
-      input_type: string;
+      input_type: "number" | "dropdown";
+      read_only:boolean;
+      
+
     };
     slider: {
       is_visible: boolean;

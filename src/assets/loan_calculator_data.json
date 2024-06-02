@@ -14,7 +14,8 @@
         "placeholder_value": 100000,
         "is_commas_enabled": true,
         "starting_text": "",
-        "input_type": "number"
+        "input_type": "number",
+        "read_only": false
       },
       "slider": {
         "is_visible": true,
@@ -34,7 +35,8 @@
         "placeholder_value": 8,
         "is_commas_enabled": false,
         "starting_text": "",
-        "input_type": "number"
+        "input_type": "number",
+        "read_only": false
       },
       "slider": {
         "is_visible": true,
@@ -54,7 +56,8 @@
         "placeholder_value": 20,
         "is_commas_enabled": false,
         "starting_text": "",
-        "input_type": "number"
+        "input_type": "number",
+        "read_only": false
       },
       "slider": {
         "is_visible": true,

@@ -116,12 +116,47 @@ export const calculateOutputs = (
           ...(values as [number])
         );
         break;
+      case "INVESTED_AMOUNT_MF":
+        calculatedValue = calculateInvestedAmountMutualFund(
+          ...(values as [number])
+        );
+        break;
+      case "ESTIMATED_RETURNS_MF":
+        calculatedValue = calculateEstimatedReturnsMutualFund(
+          ...(values as [number, number, number])
+        );
+        break;
+      case "TOTAL_MF":
+        calculatedValue = calculateTotalValueMutualFund(
+          ...(values as [number, number, number])
+        );
+        break;
+      case "TOTAL_EPF":
+        calculatedValue = calculateEPFAccumulatedAmount(
+          ...(values as [number, number, number, number, number])
+        );
+        break;
+        case "PRINCIPAL_SI":
+        calculatedValue = calculatePrincipalAmountSI(
+          ...(values as [ number])
+        );
+        break;
+        case "TOTAL_INTREST_SI":
+        calculatedValue = calculateTotalInterestSI(
+          ...(values as [number, number, number])
+        );
+        break;
+        case "TOTAL_VALUE_SI":
+        calculatedValue = calculateTotalAmountSI(
+          ...(values as [number, number, number])
+        );
+        break;
       default:
         throw new Error(`Unknown formula: ${formulaName}`);
     }
 
     // Step 4: Return the output with the calculated value
-    calculatedValue= ~~ calculatedValue;
+    calculatedValue = ~~calculatedValue;
     return {
       ...output,
       value: calculatedValue,
@@ -253,11 +288,13 @@ const calculateFinalValueSWP = (
   const totalMonths = n * t;
 
   // The modified formula
-  const futureValueOfWithdrawals = withdrawalPerMonth * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
+  const futureValueOfWithdrawals =
+    withdrawalPerMonth *
+    ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
 
-  const futureValueOfInvestment = totalInvestment * Math.pow(1 + monthlyRate, totalMonths);
+  const futureValueOfInvestment =
+    totalInvestment * Math.pow(1 + monthlyRate, totalMonths);
 
-  
   const finalValue = futureValueOfInvestment - futureValueOfWithdrawals;
 
   return finalValue;
@@ -293,3 +330,75 @@ const calculateCarLoanEMI = calculateLoanEMI;
 const calculateCarLoanTotalPayment = calculateLoanTotalPayment;
 const calculateCarLoanTotalInterest = calculateTotalInterest;
 const calculateCarLoanPrincipalAmount = calculatePrincipalAmount;
+const calculateInvestedAmountMutualFund = valueStraightFromInput;
+
+const calculateEstimatedReturnsMutualFund = (
+  totalInvestment: number,
+  annualReturnRate: number,
+  timePeriodYears: number
+): number => {
+  const totalValue = calculateTotalValueMutualFund(
+    totalInvestment,
+    annualReturnRate,
+    timePeriodYears
+  );
+  return totalValue - totalInvestment;
+};
+
+const calculateTotalValueMutualFund = (
+  totalInvestment: number,
+  annualReturnRate: number,
+  timePeriodYears: number
+): number => {
+  const totalValue =
+    totalInvestment * (1 + annualReturnRate / 100) ** timePeriodYears;
+  return totalValue;
+};
+const calculateEPFAccumulatedAmount = (
+  monthlySalary: number,
+  currentAge: number,
+  epfContributionRate: number,
+  annualSalaryIncreaseRate: number,
+  interestRate: number,
+  retirementAge: number = 60
+): number => {
+  const yearsToRetirement = retirementAge - currentAge;
+  let accumulatedAmount = 0;
+  let currentMonthlySalary = monthlySalary;
+
+  for (let year = 0; year < yearsToRetirement; year++) {
+    for (let month = 0; month < 12; month++) {
+      accumulatedAmount += (currentMonthlySalary * epfContributionRate) / 100;
+      accumulatedAmount *= 1 + interestRate / 100 / 12;
+    }
+    currentMonthlySalary *= 1 + annualSalaryIncreaseRate / 100;
+  }
+
+  return accumulatedAmount;
+};
+const calculatePrincipalAmountSI =valueStraightFromInput;
+
+const calculateTotalInterestSI = (
+  principalAmount: number,
+  annualInterestRate: number,
+  timePeriodYears: number
+): number => {
+  const totalInterest =
+    (principalAmount * annualInterestRate * timePeriodYears) / 100;
+  return totalInterest;
+};
+
+const calculateTotalAmountSI = (
+  principalAmount: number,
+  annualInterestRate: number,
+  timePeriodYears: number
+): number => {
+  const totalInterest = calculateTotalInterestSI(
+    principalAmount,
+    annualInterestRate,
+    timePeriodYears
+  );
+  const totalAmount = principalAmount + totalInterest;
+  return totalAmount;
+};
+

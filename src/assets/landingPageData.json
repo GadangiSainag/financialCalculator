@@ -54,6 +54,39 @@
         "path": "home-loan-emi",
         "config_file_name": "home_loan_emi_data"
       }
+    },
+    {
+      "id": "6",
+      "header": "MF",
+      "sub_text": "Calculate the returns on Mutual Funds investment.",
+      "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
+      "cta": {
+        "calculator_type": "CALCULATOR_MF",
+        "path": "mutual-fund-calculator",
+        "config_file_name": "mutual_fund_returns_data"
+      }
+    },
+    {
+      "id": "7",
+      "header": "EPF",
+      "sub_text": "Calculate returns for your Employee's Provident Fund (EPF).",
+      "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
+      "cta": {
+        "calculator_type": "CALCULATOR_EPF",
+        "path": "employee-provident-fund-calculator",
+        "config_file_name": "employee_provident_fund_data"
+      }
+    },
+    {
+      "id": "8",
+      "header": "Simple Intrest",
+      "sub_text": "Calculate simple intrest on your loans and saving schemes investments.",
+      "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
+      "cta": {
+        "calculator_type": "CALCULATOR_SI",
+        "path": "simple-intrest-calculator",
+        "config_file_name": "simple_intrest_calculator_data"
+      }
     }
   ]
 }

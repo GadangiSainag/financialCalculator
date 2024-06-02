@@ -79,21 +79,21 @@ export default function InputField(props: Props) {
 
         {props.input.text_box.is_visible && (
           <div
-          className={classes.outerNumerical}
-          id={`parent_${props.input.id}`}
+            className={classes.outerNumerical}
+            id={`parent_${props.input.id}`}
           >
-            
             <span className={classes.prefix}>
               {props.input.text_box.prefix}
             </span>
             <input
               id={props.input.id}
-              type="number"
+              type={"number"}
               value={liveObj?.value ?? props.input.text_box.placeholder_value}
               step={props.input.slider.step}
               onChange={handleChange}
               onWheel={handleWheel}
-              min={0}
+              min={props.input.slider.min}
+              readOnly ={props.input.text_box.read_only}
             />
             <span className={classes.suffix}>
               {props.input.text_box.suffix}
