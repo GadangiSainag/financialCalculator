@@ -103,7 +103,7 @@
         "is_commas_enabled": false,
         "prefix": "",
         "suffix": "%",
-        "input_type": "fixed",
+        "input_type": "number",
         "read_only": true
       },
       "slider": {

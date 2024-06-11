@@ -74,8 +74,8 @@ export default function InputField(props: Props) {
             />
 
             <div className={classes.constants}>
-              <span id={classes.minValue}>{props.input.slider.minLabel}</span>
-              <span id={classes.maxValue}>{props.input.slider.maxLabel}</span>
+              <span id={classes.minValue} className={classes.preventSelect}>{props.input.slider.minLabel}</span>
+              <span id={classes.maxValue} className={classes.preventSelect}>{props.input.slider.maxLabel}</span>
             </div>
           </div>
         )}

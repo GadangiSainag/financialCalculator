@@ -17,8 +17,7 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({ value, symbol }) => {
   });
 
   return (
-    <div style={{ display: "flex", flexDirection: "row-reverse"}}>
-      
+    <div style={{ display: "flex", flexDirection: "row-reverse" }}>
       <animated.h3>{formatNumberCurrency(number)}</animated.h3>
 
       {/* <animated.h3>{number.to((n) => n.toFixed(2))}</animated.h3> */}

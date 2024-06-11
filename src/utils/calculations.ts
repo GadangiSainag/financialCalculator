@@ -366,6 +366,7 @@ const calculateTotalValueMutualFund = (
     totalInvestment * (1 + annualReturnRate / 100) ** timePeriodYears;
   return totalValue;
 };
+
 const calculateEPFAccumulatedAmount = (
   monthlySalary: number,
   currentAge: number,
