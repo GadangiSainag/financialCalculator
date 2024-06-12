@@ -56,7 +56,7 @@ export default function TextAreaOutput(props: Props) {
         {props.outputValues.map(
           (eachElement: TextOutputComponent["output"], index: number) => (
             // const cla =  `${styles[`div${index + 1}`]}` ;
-            <div className={`${classes[`div${index + 1}`]}`}>
+            <div className={`${classes[`div${index + 1}`]}`} key={eachElement.id}>
               <div className={`${classes[`div${index + 1}mini`]}`}>
                 {/* <div
            style={{

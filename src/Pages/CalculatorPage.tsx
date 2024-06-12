@@ -71,7 +71,7 @@ const CalculatorPage: React.FC = () => {
       document.title = calculatorData.page_title.toUpperCase();
     }
   }, [calculatorData?.page_title]);
-
+ 
   const handleChange = (id: string, value: number) => {
     dispatch(updateInputValue({ id, value }));
   };

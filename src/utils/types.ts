@@ -19,6 +19,7 @@ export interface sliderInputComponent {
     id: string;
     title: string;
     description: string;
+    template_type:"SLIDER_NUM"| "DROPDOWN" | "NUM" | "DROPDOWN_NUM" | "RADIO" | "RADIO_SLIDER_NUM";
     text_box: {
       is_visible: boolean;
       placeholder_value: number;

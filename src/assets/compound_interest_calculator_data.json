@@ -3,11 +3,12 @@
   "template_type": "TEXT_SLIDER_DROPDOWN_PIE",
   "page_title": "Coumpound Interest Calculator Online",
   "header": "Coumpound Interest Calculator",
-  "input_template_type": "TEXT_SLIDER__DROPDOWN_INPUT_VIEW",
+  "input_template_type": "TEXT_SLIDER_DROPDOWN_INPUT_VIEW",
   "inputs": [
     {
       "id": "principal_amount_ci",
-      "title": "principal amount",
+      "title": "Principal amount",
+      "template_type": "SLIDER_NUM",
       "description": "",
       "text_box": {
         "is_visible": true,
@@ -31,6 +32,7 @@
       "id": "interest_rate_ci",
       "title": "Rate of interest (p.a)",
       "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
+      "template_type": "SLIDER_NUM",
       "text_box": {
         "is_visible": true,
         "placeholder_value": 6,
@@ -53,6 +55,7 @@
       "id": "time_period_ci",
       "title": "Time Period",
       "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+      "template_type": "SLIDER_NUM",
       "text_box": {
         "is_visible": true,
         "placeholder_value": 5,
@@ -75,6 +78,7 @@
       "id": "frequency_ci",
       "title": "Coumpounding frequency",
       "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+      "template_type": "OPTION",
       "text_box": {
         "is_visible": true,
         "placeholder_value": null,
