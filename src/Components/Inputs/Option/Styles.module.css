@@ -1,4 +1,4 @@
-@import "../Shared.modular.css";
+@import '../Shared.modular.css';
 
 .title {
   text-align: left;
@@ -6,8 +6,8 @@
   margin: 0;
   font-weight: 500;
 }
-.description {
-  grid-area: 2 / 1 / 3 / 3;
+.smallDescription {
+  /* grid-area: 2 / 1 / 3 / 3; */
   margin: 0;
   font-size: medium;
   text-align: left;
@@ -17,4 +17,11 @@
   grid-template-rows: 0.3fr 0.1fr 1fr;
   gap: 0;
 }
-
+.inputComp {
+  margin-top:12px;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0 3%;
+}

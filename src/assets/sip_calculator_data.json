@@ -8,8 +8,8 @@
     {
       "id": "monthly_investment_sip",
       "title": "Monthly investment",
-      "description": "",
-      "template_type": "SLIDER_NUM",
+      "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
+      "template_type": "NUM",
       "text_box": {
         "is_visible": true,
         "placeholder_value": 500000,

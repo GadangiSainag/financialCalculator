@@ -14,34 +14,36 @@ export interface dropdownOptionObj {
   option_label: string;
   value: number;
 }
+export interface textBoxData{
+  is_visible: boolean;
+  placeholder_value: number;
+  is_commas_enabled: boolean;
+  prefix: string;
+  suffix: string;
+  input_type: "number" | "dropdown";
+  read_only: boolean;
+  dropdown: {
+    is_visible: boolean;
+    initial_option_id: string;
+    options: dropdownOptionObj[];
+  };
+};
+export interface sliderData {
+  is_visible: boolean;
+  min: number;
+  minLabel: string;
+  max: number;
+  maxLabel: string;
+  step: number;
+};
 export interface sliderInputComponent {
   input: {
     id: string;
     title: string;
     description: string;
     template_type:"SLIDER_NUM"| "DROPDOWN" | "NUM" | "DROPDOWN_NUM" | "RADIO" | "RADIO_SLIDER_NUM";
-    text_box: {
-      is_visible: boolean;
-      placeholder_value: number;
-      is_commas_enabled: boolean;
-      prefix: string;
-      suffix: string;
-      input_type: "number" | "dropdown";
-      read_only: boolean;
-      dropdown: {
-        is_visible: boolean;
-        initial_option_id: string;
-        options: dropdownOptionObj[];
-      };
-    };
-    slider: {
-      is_visible: boolean;
-      min: number;
-      minLabel: string;
-      max: number;
-      maxLabel: string;
-      step: number;
-    };
+    text_box: textBoxData;
+    slider: sliderData;
   };
 }
 //OutputField

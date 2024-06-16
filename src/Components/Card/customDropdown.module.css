@@ -10,5 +10,6 @@
   cursor: pointer;
   min-width: 100px;
   text-align: center; 
-  font-size: medium;
+  /* font-size: medium; */
+  font-size: 1.1rem;
 }

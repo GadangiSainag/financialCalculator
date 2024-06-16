@@ -1,4 +1,4 @@
-@import "../Shared.modular.css"
+@import '../Shared.modular.css';
 
 input[type='number'] {
   height: 40px;
@@ -70,6 +70,14 @@ input[type='number']:active {
 .inputComp {
   grid-area: 3 / 1 / 4 / 3;
 }
+.inputComp {
+  margin-top:12px;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0 3%;
+}
 .errorTextBox {
   /* background-color: #EF5350; */
   border: 2px solid #ef5350;
@@ -80,24 +88,19 @@ input[type='number']:active {
   user-select: none; /* Standard syntax */
 }
 .inputUnit {
-    display: grid;
-    grid-template-rows: 0.3fr 0.1fr 1fr;
-    gap: 0;
-  }
-  .inputUnit {
-    display: grid;
-    grid-template-rows: 0.3fr 0.1fr 1fr;
-    gap: 0;
-  }
-  .title {
-    text-align: left;
-    grid-area: 1 / 1 / 2 / 3;
-    margin: 0;
-    font-weight: 500;
-  }
-  .description {
-    grid-area: 2 / 1 / 3 / 3;
-    margin: 0;
-    font-size: medium;
-    text-align: left;
-  }
+  display: grid;
+  grid-template-rows: 0.3fr 0.1fr 1fr;
+  gap: 0;
+}
+.title {
+  text-align: left;
+  grid-area: 1 / 1 / 2 / 3;
+  margin: 0;
+  font-weight: 500;
+}
+.smallDescription {
+  /* grid-area: 2 / 1 / 3 / 3; */
+  margin: 0;
+  font-size: medium;
+  text-align: left;
+}
