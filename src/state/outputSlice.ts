@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { OutputState, TextOutputComponent, inputObj } from "../utils/types";
+import { OutputState, TextOutputComponent, InputObj } from "../utils/types";
 import { calculateOutputs } from "../utils/calculations";
 
 const initialState: OutputState = {
@@ -15,7 +15,7 @@ const outputSlice = createSlice({
   reducers: {
 
     calculateOutput(state, action: 
-      PayloadAction<{ inputs: inputObj[], formulas: TextOutputComponent["output"][] }>) {
+      PayloadAction<{ inputs: InputObj[], formulas: TextOutputComponent["output"][] }>) {
       const { inputs, formulas } = action.payload;
       state.data =calculateOutputs(inputs, formulas);
     },

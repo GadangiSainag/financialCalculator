@@ -1,4 +1,4 @@
-export interface eachCalculatorIntro {
+export interface EachCalculatorIntro {
   id: string;
   header: string;
   sub_text: string;
@@ -9,12 +9,14 @@ export interface eachCalculatorIntro {
     config_file_name: string;
   };
 }
-export interface dropdownOptionObj {
+export interface DropdownOptionObj {
   id: string;
   option_label: string;
   value: number;
 }
-export interface textBoxData{
+export type RadioOptionObj = DropdownOptionObj;
+
+export interface TextBoxData {
   is_visible: boolean;
   placeholder_value: number;
   is_commas_enabled: boolean;
@@ -25,25 +27,32 @@ export interface textBoxData{
   dropdown: {
     is_visible: boolean;
     initial_option_id: string;
-    options: dropdownOptionObj[];
+    options: DropdownOptionObj[];
   };
-};
-export interface sliderData {
+}
+export interface SliderData {
   is_visible: boolean;
   min: number;
   minLabel: string;
   max: number;
   maxLabel: string;
   step: number;
-};
-export interface sliderInputComponent {
+}
+export interface SliderInputComponent {
   input: {
     id: string;
     title: string;
     description: string;
-    template_type:"SLIDER_NUM"| "DROPDOWN" | "NUM" | "DROPDOWN_NUM" | "RADIO" | "RADIO_SLIDER_NUM";
-    text_box: textBoxData;
-    slider: sliderData;
+    template_type:
+      | "SLIDER_NUM"
+      | "DROPDOWN"
+      | "UNIT_SELECTOR_NUM"
+      | "NUM"
+      | "DROPDOWN_NUM"
+      | "RADIO"
+      | "RADIO_SLIDER_NUM";
+    text_box: TextBoxData;
+    slider: SliderData;
   };
 }
 //OutputField
@@ -65,18 +74,18 @@ export interface PieLabel {
   label: string;
   colour: string;
 }
-export interface faqItem {
+export interface FaqItem {
   question: string;
   answer: string;
 }
 
-export interface calculatorType {
+export interface CalculatorType {
   calculator_type: string;
   template_type: string;
   page_title: string;
   header: string;
   input_template_type: string;
-  inputs: sliderInputComponent["input"][];
+  inputs: SliderInputComponent["input"][];
   outputs: TextOutputComponent["output"][];
   pie: {
     visible: boolean;
@@ -85,20 +94,20 @@ export interface calculatorType {
   description: string;
   faqs: {
     header: string;
-    items: faqItem[];
+    items: FaqItem[];
   };
 }
 
 //InputState
-export interface inputObj {
+export interface InputObj {
   id: string;
   value: number;
 }
 export interface InputsState {
   status: "idle" | "error" | "loading";
-  data: inputObj[];
+  data: InputObj[];
 }
-export interface outputObj {
+export interface OutputObj {
   id: string;
   value: number;
 }

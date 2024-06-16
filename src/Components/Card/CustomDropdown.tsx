@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { dropdownOptionObj, sliderInputComponent } from "../../utils/types";
+import { DropdownOptionObj, SliderInputComponent } from "../../utils/types";
 import classes from "./customDropdown.module.css";
 
 interface Props {
-  data: sliderInputComponent["input"]["text_box"]["dropdown"];
+  data: SliderInputComponent["input"]["text_box"]["dropdown"];
   onOptionChange: (selectedOption: number) => void;
 }
 
@@ -13,7 +13,7 @@ export default function CustomDropdown(props: Props) {
   );
 
   const [currentOption, setCurrentOption] = useState<
-    dropdownOptionObj | undefined
+    DropdownOptionObj | undefined
   >(initialOptionObj);
   const handleClick = () => {
     if (!currentOption) return;

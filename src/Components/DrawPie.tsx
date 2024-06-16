@@ -1,8 +1,8 @@
 import { Pie } from "react-chartjs-2";
 import "chart.js/auto";
-import { TextOutputComponent, calculatorType } from "../utils/types";
+import { TextOutputComponent, CalculatorType } from "../utils/types";
 interface Props {
-  pieInfo: calculatorType["pie"];
+  pieInfo: CalculatorType["pie"];
   pieData: TextOutputComponent["output"][];
 }
 const PieChart = (props: Props) => {

@@ -1,11 +1,11 @@
 import React from "react";
 import { RootState } from "../../state/store";
-import { sliderInputComponent } from "../../utils/types";
+import { SliderInputComponent } from "../../utils/types";
 import makeSelectInputById from "../../utils/selectInputByID";
 import { useSelector } from "react-redux";
 import CreateInputComponent from "../Inputs/TemplateMapper";
 interface Props {
-  input: sliderInputComponent["input"];
+  input: SliderInputComponent["input"];
   onChange: (id: string, value: number) => void;
 }
 

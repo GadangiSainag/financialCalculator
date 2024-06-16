@@ -1,7 +1,7 @@
-import { TextOutputComponent, inputObj } from "./types";
+import { TextOutputComponent, InputObj } from "./types";
 
 export const calculateOutputs = (
-  inputs: inputObj[],
+  inputs: InputObj[],
   formulas: TextOutputComponent["output"][]
 ): TextOutputComponent["output"][] => {
   // Step 1: Convert inputs into an object for easy access

@@ -13,7 +13,7 @@ import {
   fetchDataFromStore,
   updateInputValue,
 } from "../state/inputSlice";
-import { calculatorType, sliderInputComponent } from "../utils/types";
+import { CalculatorType, SliderInputComponent } from "../utils/types";
 import { RootState, useAppDispatch } from "../state/store";
 import { calculateOutput, clearAllOutputs } from "../state/outputSlice";
 import ReactMarkdown from "react-markdown";
@@ -21,7 +21,7 @@ import FaqSection from "../Components/FaqSection";
 import SkeletonLoading from "../Components/Skeleton";
 const CalculatorPage: React.FC = () => {
   const navigate = useNavigate();
-  const [calculatorData, setCalculatorData] = useState<calculatorType | null>(
+  const [calculatorData, setCalculatorData] = useState<CalculatorType | null>(
     null
   );
   const { calculatorId } = useParams<{ calculatorId: string }>();
@@ -88,7 +88,7 @@ const CalculatorPage: React.FC = () => {
           <div className={classes.inputs}>
             {calculatorData.inputs &&
               calculatorData.inputs.map(
-                (eachInput: sliderInputComponent["input"]) => (
+                (eachInput: SliderInputComponent["input"]) => (
                   <div className={classes.element} key={eachInput.id}>
                     <InputField input={eachInput} onChange={handleChange} />
                   </div>

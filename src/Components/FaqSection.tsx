@@ -1,14 +1,14 @@
 import classes from "./Faq.module.css";
-import { calculatorType, faqItem } from "../utils/types";
+import { CalculatorType, FaqItem } from "../utils/types";
 interface Props {
-  faqData: calculatorType["faqs"];
+  faqData: CalculatorType["faqs"];
 }
 export default function FaqSection(props: Props) {
   return (
     <div>
       <h2>{props.faqData.header}</h2>
       {props.faqData.items &&
-        props.faqData.items.map((eachFaq: faqItem, index: number) => {
+        props.faqData.items.map((eachFaq: FaqItem, index: number) => {
           return (
             <div className={classes.faq} key={index}>
               <input type="checkbox" id={index.toString()} />

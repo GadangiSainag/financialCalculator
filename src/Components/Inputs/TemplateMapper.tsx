@@ -1,13 +1,13 @@
 import SliderNum from "./SliderNum/Template";
-import { inputObj, sliderInputComponent } from "../../utils/types";
+import { InputObj, SliderInputComponent } from "../../utils/types";
 import Option from "./Option/Template";
 import Num from "./Num/Template";
 
 interface InputComponentProps {
   type: string;
   inputData: {
-    input: sliderInputComponent["input"];
-    liveObj: inputObj | undefined;
+    input: SliderInputComponent["input"];
+    liveObj: InputObj | undefined;
     onWheel: (e: React.WheelEvent<HTMLInputElement>) => void;
     onChange: (id: string, value: number) => void;
   };

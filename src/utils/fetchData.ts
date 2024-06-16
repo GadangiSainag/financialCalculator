@@ -1,6 +1,6 @@
-import { calculatorType } from "./types";
+import { CalculatorType } from "./types";
 
-const fetchCalciData = async (filename: string): Promise<calculatorType> => {
+const fetchCalciData = async (filename: string): Promise<CalculatorType> => {
   try {
     // Perform the fetch operation
     const response = await import(`../assets/${filename}.json`);

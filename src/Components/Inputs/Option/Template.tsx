@@ -1,10 +1,10 @@
-import { inputObj, sliderInputComponent } from "../../../utils/types";
+import { InputObj, SliderInputComponent } from "../../../utils/types";
 import CustomDropdown from "../../Card/CustomDropdown";
 import classes from "./Styles.module.css";
 
 interface Props {
-  input: sliderInputComponent["input"];
-  liveObj: inputObj | undefined;
+  input: SliderInputComponent["input"];
+  liveObj: InputObj | undefined;
   onWheel?: (e: React.WheelEvent<HTMLInputElement>) => void;
   onChange: (id: string, value: number) => void;
 }

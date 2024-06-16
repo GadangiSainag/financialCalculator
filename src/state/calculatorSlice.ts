@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { calculatorType } from "../utils/types";
+import { CalculatorType } from "../utils/types";
 
 const initialState: {
-  liveCalculatorData: calculatorType | null;
+  liveCalculatorData: CalculatorType | null;
   status: "idle" | "error" | "loading";
 } = {
   liveCalculatorData: null,

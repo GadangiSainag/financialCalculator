@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
-import { TextOutputComponent, calculatorType } from "../utils/types";
+import { TextOutputComponent, CalculatorType } from "../utils/types";
 import AnimatedNumber from "./AnimateNumber";
 import classes from "./textOutput.module.css";
 interface Props {
   outputInfo: TextOutputComponent["output"][];
   outputValues: TextOutputComponent["output"][];
-  pieInfo: calculatorType["pie"];
+  pieInfo: CalculatorType["pie"];
 }
 export default function TextAreaOutput(props: Props) {
   const parentRef = useRef<HTMLDivElement | null>(null);

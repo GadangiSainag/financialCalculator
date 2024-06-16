@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { InputsState, calculatorType } from "../utils/types";
+import { InputsState, CalculatorType } from "../utils/types";
 import { AppDispatch, RootState } from "./store";
 
 const initialState: InputsState = {
@@ -11,7 +11,7 @@ const inputSlice = createSlice({
   name: "calcInputs",
   initialState,
   reducers: {
-    addNewValues(state, action: PayloadAction<calculatorType["inputs"]>) {
+    addNewValues(state, action: PayloadAction<CalculatorType["inputs"]>) {
       action.payload.forEach((input) => {
         state.data.push({
           id: input.id,
