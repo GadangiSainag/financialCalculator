@@ -1,4 +1,4 @@
-import { InputObj, SliderInputComponent } from "../../../utils/types";
+import { DropdownOptionObj, InputObj, SliderInputComponent } from "../../../utils/types";
 import CustomDropdown from "../../Card/CustomDropdown";
 import classes from "./Styles.module.css";
 
@@ -9,8 +9,9 @@ interface Props {
   onChange: (id: string, value: number) => void;
 }
 export default function Option(props: Props) {
-  const handleDropdownChange = (optionValue: number) => {
-    props.onChange(props.input.id, optionValue);
+
+  const handleDropdownChange = (option: DropdownOptionObj) => {
+    props.onChange(props.input.id, option.value);
   };
   return (
     <div className={classes.inputUnit}>

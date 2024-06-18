@@ -98,6 +98,17 @@
         "path": "compound-interest-calculator",
         "config_file_name": "compound_interest_calculator_data"
       }
+    },
+    {
+      "id": "10",
+      "header": "Salary",
+      "sub_text": "Calculate your net take home salary",
+      "footer_image": "https://assets-netstorage.groww.in/web-assets/nbg_mobile/prod/_next/static/media/sip.81144080.png",
+      "cta": {
+        "calculator_type": "CALCULATOR_SALARY",
+        "path": "salary-calculator",
+        "config_file_name": "salary_calculator_data"
+      }
     }
   ]
 }

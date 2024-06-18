@@ -163,6 +163,26 @@ export const calculateOutputs = (
       case "PRINCIPAL_CI":
         calculatedValue = calculatePrincipalAmountCI(...(values as [number]));
         break;
+        case "MONTHLY_DEDUCTIONS_SALARY":
+          calculatedValue = calculateTotalMonthlyDeductions(
+            ...(values as [number, number, number])
+          );
+          break;
+  
+        case "ANNUAL_DEDUCTIONS_SALARY":
+          calculatedValue = calculateTotalAnnualDeductions(
+            ...(values as [number, number, number, number])
+          );
+          break;
+        case "TAKE_HOME_MONTHLY_SALARY":
+          calculatedValue = calculateTakeHomeMonthlySalary(
+            ...(values as [number, number, number, number, number, number, number])
+          );
+          break;
+        case "TAKE_HOME_ANNUAL_SALARY":
+          calculatedValue = calculateTakeHomeAnnualSalary(...(values as [number, number, number, number, number, number, number]));
+          break;
+
       default:
         throw new Error(`Unknown formula: ${formulaName}`);
     }
@@ -444,4 +464,87 @@ const calculateTotalAmountCI = (
     principalAmount *
     (1 + annualInterestRate / (100 * n)) ** (n * timePeriodYears);
   return totalAmount;
+};
+const calculateTotalMonthlyDeductions = (
+  monthlyProfessionalTax: number,
+  monthlyEmployerPF: number,
+  monthlyEmployeePF: number,
+  monthlyAdditionalDeduction: number = 0
+): number => {
+  const totalMonthlyDeductions =
+    monthlyProfessionalTax +
+    monthlyEmployerPF +
+    monthlyEmployeePF +
+    monthlyAdditionalDeduction;
+  return totalMonthlyDeductions;
+};
+
+const calculateTotalAnnualDeductions = (
+  monthlyProfessionalTax: number,
+  monthlyEmployerPF: number,
+  monthlyEmployeePF: number,
+  monthlyAdditionalDeduction: number = 0
+): number => {
+  const totalMonthlyDeductions = calculateTotalMonthlyDeductions(
+    monthlyProfessionalTax,
+    monthlyEmployerPF,
+    monthlyEmployeePF,
+    monthlyAdditionalDeduction
+  );
+  const totalAnnualDeductions = totalMonthlyDeductions * 12;
+  return totalAnnualDeductions;
+};
+
+const calculateTakeHomeMonthlySalary = (
+  ctc: number,
+  bonusIncluded: number,
+  monthlyProfessionalTax: number,
+  monthlyEmployerPF: number,
+  monthlyEmployeePF: number,
+  monthlyAdditionalDeduction: number = 0,
+  isBonusInPercentage: number = 0
+): number => {
+  // Calculate monthly gross salary by removing the bonus first
+  const annualGrossSalary = ctc - bonusIncluded;
+  let monthlyGrossSalary = annualGrossSalary / 12;
+
+  // Calculate the monthly bonus
+  const monthlyBonus = isBonusInPercentage === 1
+    ? (ctc * bonusIncluded) / (100 * 12)
+    : bonusIncluded / 12;
+
+  // Add the monthly bonus to the monthly gross salary
+  monthlyGrossSalary += monthlyBonus;
+
+  const totalMonthlyDeductions = calculateTotalMonthlyDeductions(
+    monthlyProfessionalTax,
+    monthlyEmployerPF,
+    monthlyEmployeePF,
+    monthlyAdditionalDeduction
+  );
+
+  const takeHomeMonthlySalary = monthlyGrossSalary - totalMonthlyDeductions;
+  return takeHomeMonthlySalary;
+};
+
+const calculateTakeHomeAnnualSalary = (
+  ctc: number,
+  bonusIncluded: number,
+  monthlyProfessionalTax: number,
+  monthlyEmployerPF: number,
+  monthlyEmployeePF: number,
+  monthlyAdditionalDeduction: number = 0,
+  isBonusInPercentage: number = 0
+): number => {
+  const takeHomeMonthlySalary = calculateTakeHomeMonthlySalary(
+    ctc,
+    bonusIncluded,
+    monthlyProfessionalTax,
+    monthlyEmployerPF,
+    monthlyEmployeePF,
+    monthlyAdditionalDeduction,
+    isBonusInPercentage
+  );
+  const takeHomeAnnualSalary = takeHomeMonthlySalary * 12;
+  return takeHomeAnnualSalary;
 };

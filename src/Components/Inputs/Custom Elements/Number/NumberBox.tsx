@@ -1,9 +1,11 @@
-import { InputObj, SliderInputComponent } from "../../../utils/types";
+import { InputObj, SliderInputComponent } from "../../../../utils/types";
 import classes from "./NumberBox.module.css";
 
 interface Props {
   input: SliderInputComponent["input"];
   liveObj: InputObj | undefined;
+  customPrefix?: string;
+  customSuffix?: string;
   onWheel: (e: React.WheelEvent<HTMLInputElement>) => void;
   onChange: (id: string, value: number) => void;
 }
@@ -38,18 +40,22 @@ export default function NumberBox(props: Props) {
   };
   return (
     <div className={classes.outerNumerical} id={`parent_${props.input.id}`}>
-      <span className={classes.prefix}>{props.input.text_box.prefix}</span>
+      <span className={classes.prefix}>
+        {props.customPrefix ?? props.input.text_box.prefix}
+      </span>
       <input
         id={props.input.id}
         type={"number"}
         value={props.liveObj?.value ?? props.input.text_box.placeholder_value}
-        step={props.input.slider.step}
+        step={props.input.slider?.step}
         onChange={handleNumChange}
         onWheel={props.onWheel}
-        min={props.input.slider.min}
+        min={props.input.slider?.min}
         readOnly={props.input.text_box.read_only}
       />
-      <span className={classes.suffix}>{props.input.text_box.suffix}</span>
+      <span className={classes.suffix}>
+        {props.customSuffix ?? props.input.text_box.suffix}
+      </span>
     </div>
   );
 }

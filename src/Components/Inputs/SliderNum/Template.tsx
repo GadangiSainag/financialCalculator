@@ -1,5 +1,5 @@
 import { InputObj, SliderInputComponent } from "../../../utils/types";
-import NumberBox from "../Custom Elements/NumberBox";
+import NumberBox from "../Custom Elements/Number/NumberBox";
 import classes from "./Styles.module.css";
 
 interface Props {

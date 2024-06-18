@@ -15,7 +15,11 @@ const inputSlice = createSlice({
       action.payload.forEach((input) => {
         state.data.push({
           id: input.id,
-          value: input.text_box.placeholder_value ?? input.text_box.dropdown.options.find((each) => each.id === input.text_box.dropdown.initial_option_id)?.value,
+          value:
+            input.text_box.placeholder_value ??
+            input.text_box.dropdown.options.find(
+              (each) => each.id === input.text_box.dropdown.initial_option_id
+            )?.value,
         });
       });
     },
@@ -30,7 +34,15 @@ const inputSlice = createSlice({
         input.value = value;
       }
     },
-
+    addSingleValue(state, action: PayloadAction<{ id: string; value: number }>) {
+      const { id, value } = action.payload;
+      if (value !== undefined && value !== null) {
+        state.data.push({
+          id,
+          value,
+        });
+      }
+    },
     clearAllInputs(state) {
       state.data = [];
     },
@@ -44,7 +56,6 @@ export const fetchDataFromStore = () => async (
   const calciData = getState().calculator.liveCalculatorData;
 
   if (calciData?.inputs) {
-    
     dispatch(addNewValues(calciData.inputs));
   } else {
     console.warn("No calculator data found");
@@ -54,6 +65,7 @@ export const fetchDataFromStore = () => async (
 export const {
   updateInputValue,
   addNewValues,
+  addSingleValue,
   clearAllInputs,
 } = inputSlice.actions;
 export default inputSlice.reducer;

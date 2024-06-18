@@ -14,8 +14,22 @@ export interface DropdownOptionObj {
   option_label: string;
   value: number;
 }
+export interface DropdownData{
+  is_visible: boolean;
+    initial_option_id: string;
+    options: DropdownOptionObj[];
+}
 export type RadioOptionObj = DropdownOptionObj;
-
+export interface RadioData {
+    is_visible: boolean;
+    initial_option_id: string;
+    options: RadioOptionObj[];
+  
+}
+export interface UnitSelectorObj extends DropdownOptionObj{
+  change_suffix_to?:string;
+  change_prefix_to?:string;
+}
 export interface TextBoxData {
   is_visible: boolean;
   placeholder_value: number;
@@ -24,11 +38,7 @@ export interface TextBoxData {
   suffix: string;
   input_type: "number" | "dropdown";
   read_only: boolean;
-  dropdown: {
-    is_visible: boolean;
-    initial_option_id: string;
-    options: DropdownOptionObj[];
-  };
+  dropdown: DropdownData;
 }
 export interface SliderData {
   is_visible: boolean;
@@ -38,6 +48,16 @@ export interface SliderData {
   maxLabel: string;
   step: number;
 }
+export interface UnitSelector {
+        new_input_id: string;
+        type: "DROPDOWN" | "RADIO";
+        is_visible: boolean;
+        input_type: string;   // might expect more here
+        data: {
+          initial_option_id: string;
+          options: UnitSelectorObj[]
+        }
+      }
 export interface SliderInputComponent {
   input: {
     id: string;
@@ -51,8 +71,10 @@ export interface SliderInputComponent {
       | "DROPDOWN_NUM"
       | "RADIO"
       | "RADIO_SLIDER_NUM";
-    text_box: TextBoxData;
+    text_box : TextBoxData;
     slider: SliderData;
+    unit_selector: UnitSelector;
+    radio:RadioData ;
   };
 }
 //OutputField

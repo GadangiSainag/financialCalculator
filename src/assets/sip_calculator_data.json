@@ -6,10 +6,10 @@
   "input_template_type": "TEXT_SLIDER_INPUT_VIEW",
   "inputs": [
     {
-      "id": "monthly_investment_sip",
+      "id": "ctc_bonus",
       "title": "Monthly investment",
       "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
-      "template_type": "NUM",
+      "template_type": "DROP_UNITS_SELECTOR_NUM",
       "text_box": {
         "is_visible": true,
         "placeholder_value": 500000,
@@ -19,13 +19,26 @@
         "input_type": "number",
         "read_only": false
       },
-      "slider": {
+      "unit_selector": {
+        "new_input_id": "is_percentage_salary",
+        "type": "DROPDOWN",
         "is_visible": true,
-        "min": 500,
-        "minLabel": "500",
-        "max": 1000000,
-        "maxLabel": "10L",
-        "step": 500
+        "input_type": "number",
+        "data": {
+          "initial_option_id": "percentage_unit_salary",
+          "options": [
+            {
+              "id": "amount_unit_salary",
+              "option_label": "Amount",
+              "value": 0
+            },
+            {
+              "id": "percentage_unit_salary",
+              "option_label": "Percentage",
+              "value": 1
+            }
+          ]
+        }
       }
     },
     {

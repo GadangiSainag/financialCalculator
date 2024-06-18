@@ -1,0 +1,275 @@
+{
+  "calculator_type": "CALCULATOR_SALARY",
+  "template_type": "TEXT_DROPDOWN_OUTPUT",
+  "page_title": "Salary Calculator India",
+  "header": "Salary Calculator",
+  "input_template_type": "TEXT_DROPDOWN_INPUT_VIEW",
+  "inputs": [
+    {
+      "id": "ctc_salary",
+      "title": "Cost to Company (CTC)",
+      "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
+      "template_type": "NUM",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 600000,
+        "is_commas_enabled": false,
+        "prefix": "₹",
+        "suffix": "",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": false,
+        "min": 0,
+        "minLabel": "",
+        "max": 10000000,
+        "maxLabel": "",
+        "step": ""
+      }
+    },
+    {
+      "id": "bonus_salary",
+      "title": "Bonus including CTC",
+      "description": "Donec nvallis orci quam, quis feugiat leo sagittis non. Morbi non massa ex.",
+      "template_type": "DROP_UNITS_SELECTOR_NUM",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 9,
+        "is_commas_enabled": true,
+        "prefix": "₹",
+        "suffix": "",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": false,
+        "min": 0,
+        "minLabel": "",
+        "max": 99544,
+        "maxLabel": "",
+        "step": ""
+      },
+      "unit_selector": {
+        "new_input_id": "is_percentage_salary",
+        "type": "DROPDOWN",
+        "is_visible": true,
+        "input_type": "number",
+        "data": {
+          "initial_option_id": "amount_unit_salary",
+          "options": [
+            {
+              "id": "amount_unit_salary",
+              "option_label": "Amount",
+              "value": 0,
+              "change_prefix_to":"₹"
+            },
+            {
+              "id": "percentage_unit_salary",
+              "option_label": "Percentage",
+              "value": 1,
+              "change_prefix_to":"%"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "monthly_professional_tax_salary",
+      "title": "Monthly Professional Tax",
+      "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+      "template_type": "NUM",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 200,
+        "is_commas_enabled": false,
+        "prefix": "₹",
+        "suffix": "",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 0,
+        "minLabel": "",
+        "max": 10000000,
+        "maxLabel": "",
+        "step": ""
+      }
+    },
+    {
+      "id": "monthly_employer_pf_salary",
+      "title": "Monthly Employer PF",
+      "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+      "template_type": "NUM",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 200,
+        "is_commas_enabled": false,
+        "prefix": "₹",
+        "suffix": "",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 0,
+        "minLabel": "10000000",
+        "max": 10000000,
+        "maxLabel": "",
+        "step": ""
+      }
+    },
+    {
+      "id": "monthly_employee_pf_salary",
+      "title": "Monthly Employee PF",
+      "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+      "template_type": "NUM",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 200,
+        "is_commas_enabled": false,
+        "prefix": "₹",
+        "suffix": "",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 0,
+        "minLabel": "10000000",
+        "max": 10000000,
+        "maxLabel": "",
+        "step": ""
+      }
+    },
+    {
+      "id": "monthly_additional_deduction_salary",
+      "title": "Monthly Aditional Deduction (Optional)",
+      "description": "Curabitur pellentesque, justo arcu luctus libero, at mattis ex augue ac nibh.",
+      "template_type": "NUM",
+      "text_box": {
+        "is_visible": true,
+        "placeholder_value": 200,
+        "is_commas_enabled": false,
+        "prefix": "₹",
+        "suffix": "",
+        "input_type": "number",
+        "read_only": false
+      },
+      "slider": {
+        "is_visible": true,
+        "min": 0,
+        "minLabel": "",
+        "max": 10000000,
+        "maxLabel": "",
+        "step": ""
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthly_deductions_salary",
+      "title": "Total Monthly Deductions",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "MONTHLY_DEDUCTIONS_SALARY",
+        "parameters": [
+          "monthly_professional_tax_salary",
+          "monthly_employer_pf_salary",
+          "monthly_employee_pf_salary",
+          "monthly_additional_deduction_salary"
+        ]
+      }
+    },
+    {
+      "id": "annual_deductions_salary",
+      "title": "Total Annual Deductions",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "ANNUAL_DEDUCTIONS_SALARY",
+        "parameters": [
+          "monthly_professional_tax_salary",
+          "monthly_employer_pf_salary",
+          "monthly_employee_pf_salary",
+          "monthly_additional_deduction_salary"
+        ]
+      }
+    },
+    {
+      "id": "monthly_take_home_salary",
+      "title": "Take Home Monthly Salary",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "TAKE_HOME_MONTHLY_SALARY",
+        "parameters": [
+          "ctc_salary",
+          "bonus_salary",
+          "monthly_professional_tax_salary",
+          "monthly_employer_pf_salary",
+          "monthly_employee_pf_salary",
+          "monthly_additional_deduction_salary",
+          "is_percentage_salary"
+        ]
+      }
+    },
+    {
+      "id": "annual_take_home_salary",
+      "title": "Take Home Annual Salary",
+      "front_character": "₹",
+      "back_character": "",
+      "formula": {
+        "formulaName": "TAKE_HOME_ANNUAL_SALARY",
+        "parameters": [
+          "ctc_salary",
+          "bonus_salary",
+          "monthly_professional_tax_salary",
+          "monthly_employer_pf_salary",
+          "monthly_employee_pf_salary",
+          "monthly_additional_deduction_salary",
+          "is_percentage_salary"
+        ]
+      }
+    }
+  ],
+  "pie": {
+    "visible": false,
+    "labels": [
+      {
+        "id": "",
+        "label": "",
+        "colour": "rgba(77, 100, 141, 1)"
+      },
+      {
+        "id": "",
+        "label": "",
+        "colour": "rgba(30, 31, 38, 1)"
+      }
+    ]
+  },
+  "description": "## SIP Calculator – Systematic Investment Plan Calculator\nProspective investors can think that SIPs and mutual funds are the same. However, SIPs are merely a method of investing in mutual funds, the other method being a lump sum. A SIP calculator is a tool that helps you determine the returns you can avail when parking your funds in such investment tools. Systematic Investment Plan or SIP is a process of investing a fixed sum of money in mutual funds at regular intervals. SIPs usually allow you to invest weekly, quarterly, or monthly.\n## What is a SIP Calculator?\nA SIP calculator is a simple tool that allows individuals to get an idea of the returns on their mutual fund investments made through SIP. SIP investments in mutual funds have become one of the most popular investment options for millennials lately.\n\nThese mutual fund sip calculators are designed to give potential investors an estimate on their mutual fund investments. However, the actual returns offered by a mutual fund scheme varies depending on various factors. The SIP calculator does not provide clarification for the exit load and expense ratio (if any).\n\nThis calculator will calculate the wealth gain and expected returns for your monthly SIP investment. Indeed, you get a rough estimate on the maturity amount for any of your monthly SIP, based on a projected annual return rate.\nFew of the benefits of SIP calculators include –\n### Heres how it may help you\n- Assists you to determine the amount you want to invest in.\n- Tells you the total amount you have invested.\n- Gives an estimated value of the returns.\n- M = P × ({[1 + i]^n – 1} / i) × (1 + i)",
+  "faqs": {
+    "header": "FAQs",
+    "items": [
+      {
+        "question": "How much can I invest in a SIP?",
+        "answer": "There is no limit to the amount you can invest in a SIP. The minimum amount that you can invest is Rs. 500 per month."
+      },
+      {
+        "question": "What is the maximum tenure of a SIP?",
+        "answer": "There is no maximum tenure of a SIP. You can invest as long as you can. The minimum tenure you can go for is 3 years."
+      },
+      {
+        "question": "Are SIPs similar to mutual funds?",
+        "answer": "People often tend to think of SIP as either mutual funds or different than a mutual fund. The fact is that SIP is just a style of investment and not a fund/scheme or a stock/investment avenue. It is an investment vehicle to invest periodically in a fund/scheme of your choice."
+      },
+      {
+        "question": "Can I renew a SIP?",
+        "answer": "Yes, you can renew a SIP automatically. Companies also give you the option to cancel this auto-renew feature."
+      }
+    ]
+  }
+}
